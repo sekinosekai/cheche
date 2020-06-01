@@ -1,4 +1,5 @@
 {
+      "cloud": true,
       "pages": [
             "pages/start/start",
             "pages/index/index",

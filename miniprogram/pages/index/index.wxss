@@ -20,10 +20,10 @@
       background: #fff;
       display: flex;
       align-items: center;
+      justify-content: center;
 }
 
 .search_ico {
-      padding-left: 30rpx;
       width: 32rpx;
       height: 32rpx;
 }
@@ -62,12 +62,13 @@
       background: #eee;
 }
 
-.kind_contain {
+.kind_contain { 
+      /* 导航栏 */
       width: 100%;
-      height: 90rpx;
+      height: 80rpx;
       display: flex;
-      border-bottom: 1rpx solid #eee;
-      background: #fff;
+      /* border-bottom: 1rpx solid #eee; */
+      background: #f3f5f7;
       align-items: center;
       position: relative;
 }
@@ -81,7 +82,7 @@
 }
 
 .nav-item {
-      width: 150rpx;
+      width: 170rpx;
       height: 100%;
       display: inline-block;
       font-size: 32rpx;
@@ -101,7 +102,8 @@
       color: #4db7ff;
       font-size: 32rpx !important;
       font-weight: 600;
-      border-bottom: 4rpx solid #4db7ff !important;
+      background: #fff;
+      /* border-bottom: 4rpx solid #4db7ff !important; */
 }
 
 .kind_img {
@@ -222,6 +224,7 @@
       height: 40rpx;
 }
 
+/* 设置列表显示方式的格式 */
 .list_box {
       width: 100%;
       display: flex;

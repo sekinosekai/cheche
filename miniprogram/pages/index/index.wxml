@@ -48,7 +48,7 @@
       </view>
 </view>
 <!--宫格显示-->
-<view hidden="{{!iscard}}">
+<!-- <view hidden="{{!iscard}}">
       <view class="card_grid" wx:if="{{list.length>0}}">
             <block wx:for="{{list}}" wx:key="_id">
                   <view class="card_one" bindtap="detail" data-id="{{item._id}}">
@@ -64,9 +64,11 @@
                   </view>
             </block>
       </view>
-</view>
+</view> -->
+
 <!--列表显示-->
-<view hidden="{{iscard}}">
+<!-- <view hidden="{{iscard}}"> -->
+<view>
       <block wx:if="{{list.length>0}}">
             <block wx:for="{{list}}" wx:key="_id">
                   <view class="list_box" bindtap="detail" data-id="{{item._id}}">
@@ -90,8 +92,8 @@
 </view>
 <!--无内容显示-->
 <view class="nocontent" wx:if="{{list.length==0}}">
-      <image lazy-load src="/images/blank.png"></image>
-      <view class="blank_text">这里空空如也~</view>
+      <!-- <image lazy-load src="/images/blank.png"></image> -->
+      <view class="blank_text">还没有人发布拼单，快成为第一个吧</view>
 </view>
 
 <block wx:if="{{list.length>10}}">
@@ -104,4 +106,4 @@
       </view>
 </van-transition>
 <!--首次进入提示收藏小程序-->
-<tips />
+<!-- <tips /> -->

@@ -9,7 +9,7 @@ Page({
             showList: false,
             scrollTop: 0,
             nomore: false,
-            list: [],
+            list: [], //拼单商品列表
       },
       onLoad() {
             this.listkind();
@@ -23,43 +23,43 @@ Page({
             })
       },
       //获取上次布局记忆
-      listkind() {
-            let that = this;
-            wx.getStorage({
-                  key: 'iscard',
-                  success: function(res) {
-                        that.setData({
-                              iscard: res.data
-                        })
-                  },
-                  fail() {
-                        that.setData({
-                              iscard: true,
-                        })
-                  }
-            })
-      },
+      // listkind() {
+      //       let that = this;
+      //       wx.getStorage({
+      //             key: 'iscard',
+      //             success: function(res) {
+      //                   that.setData({
+      //                         iscard: res.data
+      //                   })
+      //             },
+      //             fail() {
+      //                   that.setData({
+      //                         iscard: true,
+      //                   })
+      //             }
+      //       })
+      // },
       //布局方式选择
-      changeCard() {
-            let that = this;
-            if (that.data.iscard) {
-                  that.setData({
-                        iscard: false
-                  })
-                  wx.setStorage({
-                        key: 'iscard',
-                        data: false,
-                  })
-            } else {
-                  that.setData({
-                        iscard: true
-                  })
-                  wx.setStorage({
-                        key: 'iscard',
-                        data: true,
-                  })
-            }
-      },
+      // changeCard() {
+      //       let that = this;
+      //       if (that.data.iscard) {
+      //             that.setData({
+      //                   iscard: false
+      //             })
+      //             wx.setStorage({
+      //                   key: 'iscard',
+      //                   data: false,//保存切换后的状态
+      //             })
+      //       } else {
+      //             that.setData({
+      //                   iscard: true
+      //             })
+      //             wx.setStorage({
+      //                   key: 'iscard',
+      //                   data: true,
+      //             })
+      //       }
+      // },
       //跳转搜索
       search() {
             wx.navigateTo({
@@ -111,6 +111,7 @@ Page({
             }).orderBy('creat', 'desc').limit(20).get({
                   success: function(res) {
                         wx.stopPullDownRefresh(); //暂停刷新动作
+                        console.log(res.data[0])
                         if (res.data.length == 0) {
                               that.setData({
                                     nomore: true,
@@ -195,30 +196,30 @@ Page({
             })
       },
       //获取轮播
-      getbanner() {
-            let that = this;
-            db.collection('banner').where({}).get({
-                  success: function(res) {
-                        that.setData({
-                              banner: res.data[0].list
-                        })
-                  }
-            })
-      },
+      // getbanner() {
+      //       let that = this;
+      //       db.collection('banner').where({}).get({
+      //             success: function(res) {
+      //                   that.setData({
+      //                         banner: res.data[0].list
+      //                   })
+      //             }
+      //       })
+      // },
       //跳转轮播链接
-      goweb(e) {
-            if (e.currentTarget.dataset.web){
-                  wx.navigateTo({
-                        url: '/pages/web/web?url='+e.currentTarget.dataset.web.url,
-                  })
-            }
-      },
-      onShareAppMessage() {
-            return {
-                  title: JSON.parse(config.data).share_title,
-                  imageUrl: JSON.parse(config.data).share_img,
-                  path: '/pages/start/start'
-            }
-      },
+      // goweb(e) {
+      //       if (e.currentTarget.dataset.web){
+      //             wx.navigateTo({
+      //                   url: '/pages/web/web?url='+e.currentTarget.dataset.web.url,
+      //             })
+      //       }
+      // },
+      // onShareAppMessage() {
+      //       return {
+      //             title: JSON.parse(config.data).share_title,
+      //             imageUrl: JSON.parse(config.data).share_img,
+      //             path: '/pages/start/start'
+      //       }
+      // },
 
 })
