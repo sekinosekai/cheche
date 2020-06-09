@@ -1,68 +1,69 @@
 {
-      "cloud": true,
-      "pages": [
-            "pages/start/start",
-            "pages/index/index",
-            "pages/login/login",
-            "pages/publish/publish",
-            "pages/my/my",
-            "pages/detail/detail",
-            "pages/success/success",
-            "pages/order/detail/detail",
-            "pages/order/list/list",
-            "pages/help/help",
-            "pages/kefu/kefu",
-            "pages/parse/parse",
-            "pages/reflect/reflect",
-            "pages/about/about",
-            "pages/sell/list/list",
-            "pages/sell/detail/detail",
-            "pages/recharge/recharge",
-            "pages/search/search",
-            "pages/edit/edit",
-            "pages/web/web",
-            "pages/poster/poster"
-      ],
-      "window": {
-            "backgroundColor": "#fbbd08",
-            "backgroundTextStyle": "light",
-            "navigationBarBackgroundColor": "#4db7ff",
-            "navigationBarTitleText": "i拼",
-            "navigationBarTextStyle": "white"
+  "cloud": true,
+  "pages": [
+    "pages/start/start",
+    "pages/index/index",
+    "pages/login/login",
+    "pages/publish/publish",
+    "pages/my/my",
+    "pages/detail/detail",
+    "pages/success/success",
+    "pages/order/detail/detail",
+    "pages/order/list/list",
+    "pages/help/help",
+    "pages/kefu/kefu",
+    "pages/parse/parse",
+    "pages/reflect/reflect",
+    "pages/about/about",
+    "pages/sell/list/list",
+    "pages/sell/detail/detail",
+    "pages/recharge/recharge",
+    "pages/search/search",
+    "pages/edit/edit",
+    "pages/web/web",
+    "pages/poster/poster",
+    "pages/publishs/publishs"
+  ],
+  "window": {
+    "backgroundColor": "#fbbd08",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#4db7ff",
+    "navigationBarTitleText": "i拼",
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#707070",
+    "selectedColor": "#000000",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/images/tabbar/index.png",
+        "selectedIconPath": "/images/tabbar/index.png"
       },
-      "sitemapLocation": "sitemap.json",
-      "tabBar": {
-            "color": "#707070",
-            "selectedColor": "#000000",
-            "list": [
-                  {
-                        "pagePath": "pages/index/index",
-                        "text": "首页",
-                        "iconPath": "/images/tabbar/index.png",
-                        "selectedIconPath": "/images/tabbar/index.png"
-                  },
-                  {
-                        "pagePath": "pages/publish/publish",
-                        "text": "发布",
-                        "iconPath": "/images/tabbar/add.png",
-                        "selectedIconPath": "/images/tabbar/add.png"
-                  },
-                  {
-                        "pagePath": "pages/my/my",
-                        "text": "我的",
-                        "iconPath": "/images/tabbar/user.png",
-                        "selectedIconPath": "/images/tabbar/user.png"
-                  }
-            ]
+      {
+        "pagePath": "pages/publishs/publishs",
+        "text": "发布",
+        "iconPath": "/images/tabbar/add.png",
+        "selectedIconPath": "/images/tabbar/add.png"
       },
-      "usingComponents": {
-            "van-steps": "vant/steps/index",
-            "van-transition": "vant/transition/index",
-            "van-stepper": "vant/stepper/index",
-            "van-action-sheet": "vant/action-sheet/index",
-            "van-popup": "vant/popup/index",
-            "canvasdrawer": "/components/canvasdrawer/canvasdrawer",
-            "tips": "components/add_tips/index",
-            "van-dialog": "vant/dialog/index"
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "/images/tabbar/user.png",
+        "selectedIconPath": "/images/tabbar/user.png"
       }
+    ]
+  },
+  "usingComponents": {
+    "van-steps": "vant/steps/index",
+    "van-transition": "vant/transition/index",
+    "van-stepper": "vant/stepper/index",
+    "van-action-sheet": "vant/action-sheet/index",
+    "van-popup": "vant/popup/index",
+    "canvasdrawer": "/components/canvasdrawer/canvasdrawer",
+    "tips": "components/add_tips/index",
+    "van-dialog": "vant/dialog/index"
+  }
 }

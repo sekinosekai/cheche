@@ -1,0 +1,28 @@
+<!--pages/release/release.wxml-->
+<form bindsubmit="onSubmit">
+    *名称
+    <input class="input_wrap" name="name"></input>
+    *单价
+    <input class="input_wrap" name="price"></input>
+    *人数
+    <input class="input_wrap" name="personNum" ></input>
+    *链接
+    <input class="input_wrap" name="link"></input>
+    *截止日期
+    <picker class="input_wrap" mode="date" name="date" value="{{date}}" start="2020-05-020" end="2030-1-1" bindchange="dateChange">
+      *截至日期：{{date}}
+    </picker>
+    <picker class="input_wrap" mode="time" name="time" value="{{time}}" start="09:00" end="17:30" bindchange="timeChange">
+      *截止时间: {{time}} 
+    </picker>
+    *商品类别
+     <picker class="input_wrap" bindchange="changeType" value="{{type}}" range="{{college.name}}">
+   </picker>
+    <button type="warning" bindtap='uploadImgHandle'>上传图片</button>
+    <view>
+ 	    <block wx:for="{{tempImg}}" wx:key="{{index}}tmpimg">
+	 	    <image src='{{item}}' mode='aspectFill'></image>
+	    </block>
+  <button class="submitButton" form-type="submit">确定</button>
+    </view>
+</form>

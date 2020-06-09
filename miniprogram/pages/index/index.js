@@ -12,8 +12,8 @@ Page({
             list: [], //拼单商品列表
       },
       onLoad() {
-            this.listkind();
-            this.getbanner();
+            //this.listkind();
+            //this.getbanner();
             this.getList();
       },
       //监测屏幕滚动
@@ -99,19 +99,19 @@ Page({
       },
       getList() {
             let that = this;
-            if (that.data.collegeCur == -2) {
+            if (that.data.collegeCur == -2) {//全部商品
                   var collegeid = _.neq(-2); //除-2之外所有
             } else {
                   var collegeid = that.data.collegeCur + '' //小程序搜索必须对应格式
             }
             db.collection('publish').where({
-                  status: 0,
-                  dura: _.gt(new Date().getTime()),
-                  collegeid: collegeid
+                  //status: 0,
+                  // dura: _.gt(new Date().getTime()),
+                   collegeid: collegeid
             }).orderBy('creat', 'desc').limit(20).get({
                   success: function(res) {
                         wx.stopPullDownRefresh(); //暂停刷新动作
-                        console.log(res.data[0])
+                        console.log(res.data[0]+"===================success")
                         if (res.data.length == 0) {
                               that.setData({
                                     nomore: true,
@@ -138,7 +138,7 @@ Page({
       more() {
             let that = this;
             if (that.data.nomore || that.data.list.length < 20) {
-                  return false
+                  return false//没有数据
             }
             let page = that.data.page + 1;
             if (that.data.collegeCur == -2) {

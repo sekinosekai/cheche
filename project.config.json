@@ -42,6 +42,10 @@
 		"game": {
 			"list": []
 		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
 		"miniprogram": {
 			"current": 17,
 			"list": [
@@ -167,6 +171,13 @@
 					"id": -1,
 					"name": "帮助中心",
 					"pathName": "pages/help/help",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "发布s",
+					"pathName": "pages/publishs/publishs",
 					"scene": null
 				}
 			]

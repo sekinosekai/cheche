@@ -1,7 +1,4 @@
-<view class="top_steps">
-      <van-steps steps="{{ steps }}" active="{{ active }}" active-color="#000000" />
-</view>
-<view style="height:66.8px"></view>
+
 
 <!--步骤一-->
 <van-transition show="{{ show_a }}" name="fade-right" custom-class="block" duration="{{entime}}">

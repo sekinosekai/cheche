@@ -1,0 +1,42 @@
+
+.good_Info{
+   margin-top: 50rpx;
+  margin-left: 100rpx;
+  margin-bottom: 80rpx;
+  margin-right: 100rpx; 
+  border-color: #cbcbcc;
+  border-style: solid;
+  display: flex;
+  flex-direction:column;
+  border-radius: 30rpx;
+}
+.input_wrap{
+  border-style: solid;
+  height: 14rpx;
+  width: 400rpx;
+  margin-left: 38rpx;
+  margin-right: 38rpx;
+  margin-top: 38rpx;
+  margin-bottom: 38rpx;
+  border-color: #cbcbcc;
+}
+
+.picker{
+  border-style: solid;
+  height: 14rpx;
+  width: 400rpx;
+  margin-left: 25rpx;
+  margin-top: 38rpx;
+  margin-bottom: 38rpx;
+  border-color: #cbcbcc;
+}
+
+.submitButton{
+  width: 77rpx;
+  height: 50rpx;
+  border-style: solid;
+  border-color: #cbcbcc;
+  background-color: white;
+  font-size: large;
+  font-style: italic;
+}

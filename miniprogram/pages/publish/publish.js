@@ -129,7 +129,9 @@ Page({
             }).get({
                   success(res) {
                         //添加到数据库
+
                         if (res.data == "") {
+                              console.log("add")
                               that.addbooks(bn);
                         } else {
                               wx.hideLoading();
@@ -295,10 +297,10 @@ Page({
                                           place: that.data.place, //选择自提时地址
                                           notes: that.data.notes, //备注
                                           bookinfo: {
-                                                _id: that.data.bookinfo._id,
-                                                author: that.data.bookinfo.author,
-                                                edition: that.data.bookinfo.edition,
-                                                pic: that.data.bookinfo.pic,
+                                                // _id: that.data.bookinfo._id,
+                                                // author: that.data.bookinfo.author,
+                                                // edition: that.data.bookinfo.edition,
+                                                // pic: that.data.bookinfo.pic,
                                                 price: that.data.bookinfo.price,
                                                 title: that.data.bookinfo.title,
                                           },
