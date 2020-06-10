@@ -50,7 +50,7 @@
 .center_box {
       width: 100%;
       padding: 20rpx 0;
-      height: 200rpx;
+      height: 260rpx;
       display: flex;
       align-items: center;
       justify-content: space-around;
@@ -58,8 +58,8 @@
 }
 
 .center_1 {
-      width: 160rpx;
-      height: 160rpx;
+      width: 240rpx;
+      height: 240rpx;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -67,13 +67,13 @@
 }
 
 .center_1 view {
-      font-size: 26rpx;
+      font-size: 30rpx;
       padding-top: 20rpx;
 }
 
 .center_1 image {
-      width: 60rpx;
-      height: 60rpx;
+      width: 90rpx;
+      height: 90rpx;
 }
 
 .blank {
@@ -197,4 +197,12 @@
       height: 60rpx;
       width: 1rpx;
       border-left: 1rpx solid #e7e7e7;
+}
+
+.banner_image {
+      width: 100%;
+      padding: 16rpx 16rpx 12rpx 16rpx;
+      display: flex;
+      box-sizing: border-box;
+      height: 280rpx;
 }

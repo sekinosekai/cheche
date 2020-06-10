@@ -11,7 +11,7 @@ Page({
             //phone: '',
             wxnum: '',
             qqnum: '',
-            //email: '',
+            email: '',
             campus: JSON.parse(config.data).campus,
       },
       choose(e) {
@@ -90,9 +90,9 @@ Page({
       qqInput(e) {
             this.data.qqnum = e.detail.value;
       },
-      // emInput(e) {
-      //       this.data.email = e.detail.value;
-      // },
+      emInput(e) {
+            this.data.email = e.detail.value;
+      },
       getUserInfo(e) {
             let that = this;
             console.log(e);
@@ -134,16 +134,18 @@ Page({
                   });
             }
             //校检邮箱
-            // let email = that.data.email;
-            // if (!(/^\w+((.\w+)|(-\w+))@[A-Za-z0-9]+((.|-)[A-Za-z0-9]+).[A-Za-z0-9]+$/.test(email))) {
-            //       wx.showToast({
-            //             title: '请输入常用邮箱',
-            //             icon: 'none',
-            //             duration: 2000
-            //       });
-            //       return false;
-            // }
-            // //校检QQ号
+            let email = that.data.email;
+            if (email != ''){
+                  if (!(/^\w+((.\w+)|(-\w+))@[A-Za-z0-9]+((.|-)[A-Za-z0-9]+).[A-Za-z0-9]+$/.test(email))) {
+                        wx.showToast({
+                              title: '请输入常用邮箱',
+                              icon: 'none',
+                              duration: 2000
+                        });
+                        return false;
+                  }
+            }
+            //校检QQ号
             let qqnum = that.data.qqnum;
             if (qqnum !== '') {
                   if (!(/^\s*[.0-9]{5,11}\s*$/.test(qqnum))) {
@@ -175,7 +177,7 @@ Page({
                         //: that.data.phone,
                         campus: that.data.campus[that.data.ids],
                         qqnum: that.data.qqnum,
-                        //email: that.data.email,
+                        email: that.data.email,
                         wxnum: that.data.wxnum,
                         stamp: new Date().getTime(),
                         info: that.data.userInfo,
