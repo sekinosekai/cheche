@@ -11,7 +11,7 @@ Page({
             scrollTop: 0,
             newlist: [],
             list: [],
-            key: '',
+            key: '',//关键词
             blank: false,
             hislist: [],
             nomore:false,
@@ -70,8 +70,9 @@ Page({
       },
       //搜索结果
       search(n) {
+            //console.log(n)
             let that = this;
-            let key = that.data.key;
+            let key = that.data.key;//关键词
             if (key == '') {
                   wx.showToast({
                         title: '请输入关键词',
@@ -88,14 +89,14 @@ Page({
             if (n !== 'his') {
                   that.history(key);
             }
-            db.collection('publish').where({
-                  status: 0,
-                  dura: _.gt(new Date().getTime()),
-                  key: db.RegExp({
+            db.collection('Cars').where({
+                  //status: 0,
+                  //dura: _.gt(new Date().getTime()),
+                  name: db.RegExp({
                         regexp: '.*' + key + '.*',
                         options: 'i',
                   })
-            }).orderBy('creat', 'desc').limit(20).get({
+            }).orderBy('date', 'desc').limit(20).get({
                   success(e) {
                         wx.hideLoading();
                         that.setData({
@@ -162,7 +163,7 @@ Page({
             } else {
                   var collegeid = that.data.collegeCur + '' //小程序搜索必须对应格式
             }
-            db.collection('publish').where({
+            db.collection('Cars').where({
                   status: 0,
                   dura: _.gt(new Date().getTime()),
                   key: db.RegExp({

@@ -17,20 +17,12 @@ var data = {
       bgurl: '/images/startBg.jpg',
       //校区：西土城、沙河
       campus: [{
-                  name: '重大A区',
+                  name: '西土城',
                   id: 0
             },
             {
-                  name: '重大B区',
+                  name: '沙河',
                   id: 1
-            },
-            {
-                  name: '重大C区',
-                  id: 2
-            },
-            {
-                  name: '虎溪校区',
-                  id: 3
             },
       ],
       //配置商品类名
@@ -49,6 +41,10 @@ var data = {
             {
                   name: '服饰箱包',
                   id: 2
+            },
+            {
+                  name: '饮食',
+                  id: 3
             },
             {
                   name: '其它商品',

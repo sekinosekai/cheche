@@ -72,12 +72,12 @@
       <block wx:if="{{list.length>0}}">
             <block wx:for="{{list}}" wx:key="_id">
                   <view class="list_box" bindtap="detail" data-id="{{item._id}}">
-                        <image lazy-load class="list_poster" src="{{item.bookinfo.pic}}"></image>
+                        <image lazy-load class="list_poster" src="{{item.fileIDs[0]}}"></image>
                         <view class="list_content">
                               <view class="list_word">
-                                    <view class="list_title text-cut">{{item.bookinfo.title}}
+                                    <view class="list_title text-cut">{{item.name}}
                                     </view>
-                                    <view class="list_author text-cut">{{item.bookinfo.author}}
+                                    <view class="list_author text-cut">{{campus[item.campus].name}}
                                     </view>
                               </view>
                               <view class="list_between">

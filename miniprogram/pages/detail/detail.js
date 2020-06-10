@@ -357,7 +357,7 @@ Page({
                               animationKefuData: animationKefuData.export(),
                         })
                         ++ii;
-                  console.log(ii);
+                  //console.log(ii);
             }.bind(that), 1800);
       },
       onReady() {

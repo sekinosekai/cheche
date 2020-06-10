@@ -1,12 +1,13 @@
 // pages/release/release.js
 const config = require("../../config.js");
-
+const app = getApp();
 Page({
   /**
    * 页面的初始数据
    */
   data: {
     college: JSON.parse(config.data).college,
+    campus: JSON.parse(config.data).campus,
     Car:{
       me:"ming",
       owner:"",
@@ -20,7 +21,9 @@ Page({
       type:"",
       tempImg: [],
       fileIDs: [],
-    }
+      campus:"",
+    },
+    
   },
   uploadImgHandle: function () {
     wx.chooseImage({
@@ -37,11 +40,46 @@ Page({
       }
     })
   },
-  changeType:function(e){
-    console.log(e)
+  campusChange:function(e){
+    var campus="Car.campus"
+    this.setData({
+      [campus]:e.detail.value
+    })
+  },
+  typeChange:function(e){
+    var type="Car.type"
+    this.setData({
+      [type]:e.detail.value
+    })
+  },
+  dateChange:function(e){
+    var date="Car.date"
+    this.setData({
+      [date]:e.detail.value
+    })
+  },
+  timeChange:function(e){
+    var time="Car.time"
+    this.setData({
+      [time]:e.detail.value
+    })
   },
   //提交发布
   onSubmit:function(e){
+    if (!app.openid) {
+      wx.showModal({
+            title: '温馨提示',
+            content: '该功能需要注册方可使用，是否马上去注册',
+            success(res) {
+                  if (res.confirm) {
+                        wx.navigateTo({
+                              url: '/pages/login/login',
+                        })
+                  }
+            }
+      })
+      return false
+}
     const that = this
     console.log(that.data.Car.me+"==========fileIDs")
     const db = wx.cloud.database()
@@ -75,14 +113,16 @@ Page({
     Promise.all(promiseArr).then(res=>{
       cars.add({
         data: {
-          owner:"XiaoMing",
+          owner:"XiaoMing",//call JJ！！!!!!!!!!！！！ 缓存存储用户nickname
           name:e.detail.value.name,
           price:e.detail.value.price,
           description:e.detail.value.description,
           link:e.detail.value.link,
           numOfPersons:e.detail.value.numOfPersons,
+          type:e.detail.value.type,
           date:e.detail.value.date,
-         time:e.detail.value.time,
+          time:e.detail.value.time,
+          campus:e.detail.value.campus,
           fileIDs: this.data.fileIDs //只有当所有的图片都上传完毕后，这个值才能被设置，但是上传文件是一个异步的操作，你不知道他们什么时候把fileid返回，所以就得用promise.all
         }
       })
@@ -92,6 +132,10 @@ Page({
           wx.showToast({
             title: '提交成功',
           })
+          console.log("========================发布完成跳转首页")
+          wx.switchTab({
+            url: '../index/index',
+      })
         })
         .catch(error => {
           console.log(error)

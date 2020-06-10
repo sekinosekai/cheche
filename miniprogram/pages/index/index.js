@@ -4,12 +4,16 @@ const config = require("../../config.js");
 const _ = db.command;
 Page({
       data: {
-            college: JSON.parse(config.data).college,
-            collegeCur: -2,
+            campus: JSON.parse(config.data).campus,//校区
+            college: JSON.parse(config.data).college,//商品类别
+            collegeCur: -2,//当前商品类别编号
             showList: false,
             scrollTop: 0,
             nomore: false,
             list: [], //拼单商品列表
+      },
+      onShow(){
+            this.getList();
       },
       onLoad() {
             //this.listkind();
@@ -66,7 +70,7 @@ Page({
                   url: '/pages/search/search',
             })
       },
-      //学院选择
+      //种类选择
       collegeSelect(e) {
             this.setData({
                   collegeCur: e.currentTarget.dataset.id - 1,
@@ -102,16 +106,15 @@ Page({
             if (that.data.collegeCur == -2) {//全部商品
                   var collegeid = _.neq(-2); //除-2之外所有
             } else {
-                  var collegeid = that.data.collegeCur + '' //小程序搜索必须对应格式
+                  var collegeid = that.data.collegeCur+1 + '' //小程序搜索必须对应格式
             }
-            db.collection('publish').where({
+            db.collection('Cars').where({
                   //status: 0,
                   // dura: _.gt(new Date().getTime()),
-                   collegeid: collegeid
-            }).orderBy('creat', 'desc').limit(20).get({
+                   type: collegeid
+            }).orderBy('date','asc').limit(20).get({
                   success: function(res) {
                         wx.stopPullDownRefresh(); //暂停刷新动作
-                        console.log(res.data[0]+"===================success")
                         if (res.data.length == 0) {
                               that.setData({
                                     nomore: true,

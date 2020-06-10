@@ -8,16 +8,18 @@
     <input class="input_wrap" name="personNum" ></input>
     *链接
     <input class="input_wrap" name="link"></input>
-    *截止日期
+    <picker class="input_wrap" mode="selector" name="campus"  range="{{campus}}" range-key="name" bindchange="campusChange">
+      *发布校区: {{campus[Car.campus].name}} 
+    </picker>
+      <picker class="input_wrap" mode="selector" name="type"  range="{{college}}" range-key="name" bindchange="typeChange">
+      *商品类别: {{college[Car.type].name}} 
+    </picker>
     <picker class="input_wrap" mode="date" name="date" value="{{date}}" start="2020-05-020" end="2030-1-1" bindchange="dateChange">
-      *截至日期：{{date}}
+      *截至日期：{{Car.date}}
     </picker>
     <picker class="input_wrap" mode="time" name="time" value="{{time}}" start="09:00" end="17:30" bindchange="timeChange">
-      *截止时间: {{time}} 
+      *截止时间: {{Car.time}} 
     </picker>
-    *商品类别
-     <picker class="input_wrap" bindchange="changeType" value="{{type}}" range="{{college.name}}">
-   </picker>
     <button type="warning" bindtap='uploadImgHandle'>上传图片</button>
     <view>
  	    <block wx:for="{{tempImg}}" wx:key="{{index}}tmpimg">
