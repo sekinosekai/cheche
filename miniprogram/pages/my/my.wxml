@@ -21,15 +21,16 @@
       </view>
       <view class="center_1" bindtap="go" data-go="/pages/order/list/list" data-status="1">
             <image src="/images/publish.png"></image>
-            <view>我的购买</view>
+            <view>我的拼单</view>
       </view>
-      <view class="center_1" bindtap="go" data-go="/pages/help/help">
+      <!--<view class="center_1" bindtap="go" data-go="/pages/help/help">
             <image src="/images/help.png"></image>
             <view>帮助中心</view>
-      </view>
+      </view>-->
 </view>
 <view class="blank"></view>
-<view class="bottom_box">
+
+<!--<view class="bottom_box">
       <view class="bottom_card" bindtap="go" data-go="/pages/parse/parse" data-status="1">
             <view class="bottom_1">
                   <image src="/images/parse.png"></image>
@@ -66,8 +67,8 @@
             </view>
             <image src="/images/go.png"></image>
       </view>
-</view>
-
+</view>-->
+<image src="/images/banner.png" class="banner_image" />
 <!--分享弹出层-->
 <van-popup show="{{ showShare }}" bind:close="closePop">
       <view class="share_contain">
