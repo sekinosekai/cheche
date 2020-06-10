@@ -13,6 +13,7 @@ Page({
       owner:"",
       name:"",
       price:0,
+      unit:"",
       description:"",
       link:"",
       numOfPersons:0,
@@ -116,6 +117,7 @@ Page({
           owner:"XiaoMing",//call JJ！！!!!!!!!!！！！ 缓存存储用户nickname
           name:e.detail.value.name,
           price:e.detail.value.price,
+          unit:e.detail.value.unit,
           description:e.detail.value.description,
           link:e.detail.value.link,
           numOfPersons:e.detail.value.numOfPersons,

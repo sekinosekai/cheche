@@ -115,7 +115,10 @@ Page({
             }).orderBy('date','asc').limit(20).get({
                   success: function(res) {
                         wx.stopPullDownRefresh(); //暂停刷新动作
+                        console.log("========"+res.data)
                         if (res.data.length == 0) {
+                              console.log("lllll"+res)
+
                               that.setData({
                                     nomore: true,
                                     list: [],

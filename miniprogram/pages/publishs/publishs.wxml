@@ -1,30 +1,38 @@
 <!--pages/release/release.wxml-->
+<view class="top-bg" ></view>
+<view class="contain">
+<view class="card">
 <form bindsubmit="onSubmit">
-    *名称
-    <input class="input_wrap" name="name"></input>
-    *单价
-    <input class="input_wrap" name="price"></input>
-    *人数
-    <input class="input_wrap" name="personNum" ></input>
-    *链接
-    <input class="input_wrap" name="link"></input>
-    <picker class="input_wrap" mode="selector" name="campus"  range="{{campus}}" range-key="name" bindchange="campusChange">
-      *发布校区: {{campus[Car.campus].name}} 
+    <view class="title">商品名称</view>
+    <input class="goodinfo" name="name"></input>
+    <view class="title">单价</view>
+    <input class="goodinfo" name="price" placeholder="输入平摊后的单价"></input>
+    <view class="title">单位</view>
+    <input class="goodinfo" placeholder="例如：个/盒/箱" name="unit"></input>    
+    <view class="title">需拼数量</view>
+    <input class="goodinfo" name="personNum" placeholder="还需要几件才拼满"></input>
+    <view class="title">链接或口令</view>
+    <input class="goodinfo" name="link"></input>
+    <view class="title">校区</view>
+    <picker class="goodinfo" mode="selector" name="campus"  range="{{campus}}" range-key="name" bindchange="campusChange">已选：{{campus[Car.campus].name}}
     </picker>
-      <picker class="input_wrap" mode="selector" name="type"  range="{{college}}" range-key="name" bindchange="typeChange">
-      *商品类别: {{college[Car.type].name}} 
+    <view class="title">商品类别</view>
+    <picker class="goodinfo" mode="selector" name="type"  range="{{college}}" range-key="name" bindchange="typeChange">已选：{{college[Car.type].name}} 
     </picker>
-    <picker class="input_wrap" mode="date" name="date" value="{{date}}" start="2020-05-020" end="2030-1-1" bindchange="dateChange">
-      *截至日期：{{Car.date}}
+    <view class="title">拼单截止日期</view>
+    <picker class="goodinfo" mode="date" name="date" value="{{date}}" start="2020-05-020" end="2030-1-1" bindchange="dateChange">已选：{{Car.date}}
     </picker>
-    <picker class="input_wrap" mode="time" name="time" value="{{time}}" start="09:00" end="17:30" bindchange="timeChange">
-      *截止时间: {{Car.time}} 
+    <view class="title">截止时间</view>
+    <picker class="goodinfo" mode="time" name="time" value="{{time}}" start="09:00" end="17:30" bindchange="timeChange">已选：{{Car.time}} 
     </picker>
-    <button type="warning" bindtap='uploadImgHandle'>上传图片</button>
+    <button class="upload" type="warning" bindtap='uploadImgHandle'>上传图片</button>
     <view>
  	    <block wx:for="{{tempImg}}" wx:key="{{index}}tmpimg">
 	 	    <image src='{{item}}' mode='aspectFill'></image>
 	    </block>
-  <button class="submitButton" form-type="submit">确定</button>
     </view>
+  <button class="submitButton" form-type="submit">确认发布</button>
+    
 </form>
+</view>
+</view>
