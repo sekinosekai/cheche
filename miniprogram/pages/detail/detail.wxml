@@ -3,6 +3,7 @@
       <view class="top_img">
             <image lazy-load src="{{publishinfo.fileIDs}}"></image>
       </view>
+      <view class="left">剩余4个，还有10分钟截止</view>
       <view class="title text-cut">{{publishinfo.name}}</view>
       <!-- <view class="author  text-cut">{{publishinfo.bookinfo.author}}</view> -->
       <view class="price_box">
@@ -11,10 +12,11 @@
       </view>
 </view>
 <view class="blank"></view>
-<view class="center_contain">
+<!-- <view class="center_contain">
       <view bindtap="changeTitle" data-id="{{ true }}" class="c_title {{first_title?'title_on':''}}">发布信息</view>
       <view bindtap="changeTitle" data-id="{{ false }}" class="c_title {{first_title?'':'title_on'}}">图书详情</view>
-</view>
+</view> -->
+
 <!--发布信息-->
 <view hidden="{{!first_title}}">
       <view class="user_box">
@@ -37,20 +39,38 @@
       </view>
       <view class="deliver_box">
             <view class="deliver_first">
-                  <view class="deliver_title">取货方式：</view>
-                  <view class="deliver_kind">{{publishinfo.deliveryid==0?'自提':'帮送'}}</view>
+                  <view class="deliver_title" bindtap="copyTBL">点此复制链接或口令</view>            
             </view>
-            <view class="deliver_place">{{publishinfo.place}}</view>
       </view>
-      <view class="palceInput_box" wx:if="{{publishinfo.deliveryid==1}}">
+      <view class="deliver_box">
+            <view class="deliver_first">
+                  <view class="deliver_title">微信号：</view>            
+            </view>
+            <view class="deliver_kind">不知道{{publishinfo.place}}</view>
+      </view>
+      <view class="deliver_box">
+            <view class="deliver_first">
+                  <view class="deliver_title">取货地点：</view>
+                  <!-- <view class="deliver_kind">{{publishinfo.deliveryid==0?'自提':'帮送'}}</view> -->
+            </view>
+            <view class="deliver_kind">不知道{{publishinfo.place}}</view>
+      </view>
+      <view class="deliver_box">
+            <view class="deliver_first">
+                  <view class="deliver_title">取货时间：</view>            
+            </view>
+            <view class="deliver_kind">不知道{{publishinfo.place}}</view>
+      </view>
+      
+      <!-- <view class="palceInput_box" wx:if="{{publishinfo.deliveryid==1}}">
             <input bindinput="placeInput" placeholder="卖家可以帮送，请填写您的收货地址"></input>
-      </view>
-      <view class="notes_box" wx:if="{{publishinfo.notes!==''}}">
+      </view> -->
+      <!-- <view class="notes_box" wx:if="{{publishinfo.notes!==''}}">
             <view class="notes">
                   <view class="notes_text">备注信息:</view>
                   <view class="notes_text">{{publishinfo.notes}}</view>
             </view>
-      </view>
+      </view> -->
 </view>
 <!--图书详情-->
 <view hidden="{{first_title}}">
@@ -91,20 +111,20 @@
 </view>
 <view style="height: 96rpx;"></view>
 <!--底部导航-->
-<view class="tabbar">
+<!-- <view class="tabbar">
       <view class="t_card">
             <image src="/images/home.png"></image>
             <text>首页</text>
             <button class="t_button" bindtap="home"></button>
       </view>
-      <!-->
+
       <view class="t_card">
             <image src="/images/contact.png"></image>
             <text>反馈</text>
             <button class="t_button" bindtap="go" data-go="/pages/kefu/kefu"></button>
       </view>
       -->
-      <view class="t_card">
+      <!-- <view class="t_card">
             <image src="/images/share.png"></image>
             <text>分享</text>
             <button class="t_button" open-type="share"></button>
@@ -116,10 +136,10 @@
       <view class="buy_box">
             <view class="buy shadow" bindtap="buy">{{publishinfo.status==0?'立即购买':'刚刚被抢光了'}}</view>
       </view>
-</view>
+</view>  -->
 
 <!--悬浮客服功能-->
-<view class="contact_box" bindtap="go" data-go="/pages/kefu/kefu" animation="{{animationKefuData}}">
+<!-- <view class="contact_box" bindtap="go" data-go="/pages/kefu/kefu" animation="{{animationKefuData}}">
      <image src="/images/ww.jpg" ></image>
      <view >反馈</view>
-</view>
+</view> -->

@@ -69,6 +69,28 @@ Page({
                   url: '/pages/index/index',
             })
       },
+      
+      copyTBL:function(e){
+            var self=this
+            wx.getClipboardData({
+                  data: self.data.link,
+                  success: function(res) {
+                        // self.setData({copyTip:true}),
+                        wx.showModal({
+                        title: '提示',
+                        content: '复制成功',
+                        success: function(res) {
+                          if (res.confirm) {
+                            console.log('确定')
+                          } else if (res.cancel) {
+                            console.log('取消')
+                          }
+                        }
+                  })
+            }
+      });
+      },
+      
       //购买检测
       buy() {
             let that = this;

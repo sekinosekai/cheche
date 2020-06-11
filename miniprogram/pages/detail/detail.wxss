@@ -12,8 +12,17 @@
 }
 
 .top_img image {
-      width: 300rpx;
-      height: 300rpx;
+      width: 600rpx;
+      height: 600rpx;
+}
+
+.left {
+      width: 100%;
+      height: 50rpx;
+      background: #eee;
+      text-align: center;
+      color: #616161;
+      /* padding: 30px 15px; */
 }
 
 .title {
@@ -85,8 +94,8 @@
       height: 148rpx;
       display: flex;
       padding: 24rpx;
-      align-items: center;
-      justify-content: space-between;
+      align-items: flex-start;
+      /* justify-content: space-between; */
       box-sizing: border-box;
 }
 
@@ -191,23 +200,24 @@
       padding: 24rpx 24rpx 0 24rpx;
       display: flex;
       box-sizing: border-box;
-      justify-content: space-between;
+      /* justify-content: space-between; */
 }
 
 .deliver_first {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
 }
 
 .deliver_title {
       font-size: 28rpx;
       letter-spacing: 2rpx;
+      color: #a5a5a5;
 }
 
 .deliver_kind {
       font-size: 28rpx;
       letter-spacing: 2rpx;
-      color: #a5a5a5;
+      /* color: #a5a5a5; */
 }
 
 .deliver_place {
