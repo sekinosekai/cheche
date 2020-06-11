@@ -25,18 +25,21 @@ Page({
       //获取发布信息
       getPublish(e) {
             let that = this;
-            db.collection('publish').doc(e).get({
+            db.collection('Cars').doc(e).get({
                   success: function(res) {
                         that.setData({
-                              collegeName: JSON.parse(config.data).college[parseInt(res.data.collegeid) + 1],
+                              // collegeName: JSON.parse(config.data).campus[parseInt(res.data.collegeid) + 1],
+                              collegeName: JSON.parse(config.data).campus,
                               publishinfo: res.data
                         })
-                        that.getSeller(res.data._openid, res.data.bookinfo._id)
+                        // that.getSeller(res.data._openid, res.data._id)
+                        that.getSeller(res.data._openid)
+
                   }
             })
       },
       //获取卖家信息
-      getSeller(m, n) {
+      getSeller(m) {
             let that = this;
             db.collection('user').where({
                   _openid: m
@@ -45,21 +48,21 @@ Page({
                         that.setData({
                               userinfo: res.data[0]
                         })
-                        that.getBook(n)
+                        // that.getGood(n)
                   }
             })
       },
-      //获取书本信息
-      getBook(e) {
-            let that = this;
-            db.collection('books').doc(e).get({
-                  success: function(res) {
-                        that.setData({
-                              bookinfo: res.data
-                        })
-                  }
-            })
-      },
+      //获取商品信息（因为发布信息包含商品信息，这里删去）
+      // getGood(e) {
+      //       let that = this;
+      //       db.collection('Cars').doc(e).get({
+      //             success: function(res) {
+      //                   that.setData({
+      //                         goodinfo: res.data
+      //                   })
+      //             }
+      //       })
+      // },
       //回到首页
       home() {
             wx.switchTab({

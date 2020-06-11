@@ -1,13 +1,13 @@
 <wxs src="../../common.wxs" module="morejs" />
 <view class="top_contain">
       <view class="top_img">
-            <image lazy-load src="{{publishinfo.bookinfo.pic}}"></image>
+            <image lazy-load src="{{publishinfo.fileIDs}}"></image>
       </view>
-      <view class="title text-cut">{{publishinfo.bookinfo.title}}【第{{publishinfo.bookinfo.edition}}】</view>
-      <view class="author  text-cut">{{publishinfo.bookinfo.author}}</view>
+      <view class="title text-cut">{{publishinfo.name}}</view>
+      <!-- <view class="author  text-cut">{{publishinfo.bookinfo.author}}</view> -->
       <view class="price_box">
-            <view class="now_price">￥{{publishinfo.price}}.00元</view>
-            <view class="pre_price">定价：￥{{publishinfo.bookinfo.price}}元</view>
+            <view class="now_price">￥{{publishinfo.price}}元/{{publishinfo.unit}}</view>
+            <!-- <view class="pre_price">定价：￥{{publishinfo.bookinfo.price}}元</view> -->
       </view>
 </view>
 <view class="blank"></view>
@@ -20,18 +20,19 @@
       <view class="user_box">
             <image lazy-load src="{{userinfo.info.avatarUrl}}"></image>
             <view class="des_box">
+            <!-- 待加昵称到缓存 -->
                   <view class="user_name">{{userinfo.info.nickName}}</view>
                   <view class="local_box">
                         <image src="/images/local.png"></image>
                         <view>{{userinfo.campus.name}}</view>
                   </view>
             </view>
-            <view class="sex">
+            <!-- <view class="sex">
                   <image lazy-load src="{{userinfo.info.gender==0?'/images/none.png':(userinfo.info.gender==1?'/images/boy.png':'/images/girl.png')}}"></image>
-            </view>
+            </view> -->
       </view>
       <view class="time_box">
-            <view class="kind">{{collegeName.name}}类书</view>
+            <!-- <view class="kind">{{collegeName.name}}类书</view> -->
             <view class="time">发布于{{morejs.timelog(publishinfo.creat)}}</view>
       </view>
       <view class="deliver_box">

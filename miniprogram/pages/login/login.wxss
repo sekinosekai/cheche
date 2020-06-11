@@ -4,8 +4,9 @@
       left: 0rpx;
       width: 100%;
       height: 460rpx;
-      background-repeat: no-repeat;
-      background-size: 100%;
+      /* background-repeat: no-repeat;
+      background-size: 100%; */
+      background: #4db7ff;
 }
 
 .contain {
@@ -102,7 +103,7 @@
       color: #8c9aa8;
 }
 
-.confirm {
+/* .confirm {
       margin-top: 50rpx;
       width: 100%;
       height: 100rpx;
@@ -116,7 +117,24 @@
       letter-spacing: 4rpx;
       box-shadow: 0 0 20rpx #eee;
       border: none;
-}
+} */
+
+.confirm {
+      margin-top: 50rpx;
+      width: 100%;
+      height: 100rpx;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(#4db7ff, #8dc6ec);
+      border-radius: 60rpx;
+      color: #fff;
+      font-size: 40rpx;
+      letter-spacing: 4rpx;
+      box-shadow: 0 0 20rpx #eee;
+      border: none;
+    }
+
 .confirm::after {
       border: none;
 }

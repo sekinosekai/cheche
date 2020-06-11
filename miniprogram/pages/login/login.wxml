@@ -1,4 +1,5 @@
-<view class="top-bg" style="background-image: url('/images/login_bg.png')"></view>
+<!-- <view class="top-bg" style="background-image: url('/images/login_bg.png')"></view> -->
+<view class="top-bg"></view>
 <view class="contain">
       <view class="card">
             <view class="title">注册并登录</view>
