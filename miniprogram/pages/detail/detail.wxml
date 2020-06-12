@@ -3,7 +3,7 @@
       <view class="top_img">
             <image lazy-load src="{{publishinfo.fileIDs}}"></image>
       </view>
-      <view class="left">剩余4个，还有10分钟截止</view>
+      <view class="left">剩余4个，还有{{timeDifference}}截止</view>
       <view class="title text-cut">{{publishinfo.name}}</view>
       <!-- <view class="author  text-cut">{{publishinfo.bookinfo.author}}</view> -->
       <view class="price_box">

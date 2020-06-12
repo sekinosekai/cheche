@@ -1,0 +1,6 @@
+<!--miniprogram/pages/test/test.wxml-->
+<view>
+    <input placeholder='请输入评论' value='{{inputValue}}'></input>
+    <text bindtap='clearInputEvent'>清除评论内容</text>
+  </view>
+

@@ -10,6 +10,7 @@ Page({
       data: {
             first_title: true,
             place: '',
+            timeDifference:""//剩余时间
       },
       onLoad(e) {
             this.getuserdetail();
@@ -32,9 +33,14 @@ Page({
                               collegeName: JSON.parse(config.data).campus,
                               publishinfo: res.data
                         })
+                        var dateTime = that.data.publishinfo.date+" "+that.data.publishinfo.time;
+                        var nowDate=config.formTime(new Date());
+                        var timeDifference=config.timeDifference(nowDate,dateTime);
+                        that.setData({
+                              timeDifference:timeDifference
+                        })
                         // that.getSeller(res.data._openid, res.data._id)
                         that.getSeller(res.data._openid)
-
                   }
             })
       },
@@ -42,7 +48,7 @@ Page({
       getSeller(m) {
             let that = this;
             db.collection('user').where({
-                  _openid: m
+                  _openid:m
             }).get({
                   success: function(res) {
                         that.setData({
@@ -72,21 +78,21 @@ Page({
       
       copyTBL:function(e){
             var self=this
-            wx.getClipboardData({
-                  data: self.data.link,
+            wx.setClipboardData({
+                  data: self.data.publishinfo.link,
                   success: function(res) {
                         // self.setData({copyTip:true}),
-                        wx.showModal({
-                        title: '提示',
-                        content: '复制成功',
-                        success: function(res) {
-                          if (res.confirm) {
-                            console.log('确定')
-                          } else if (res.cancel) {
-                            console.log('取消')
-                          }
-                        }
-                  })
+                  //       wx.showModal({
+                  //       title: '提示',
+                  //       content: '复制成功',
+                  //       success: function(res) {
+                  //         if (res.confirm) {
+                  //           console.log('确定')
+                  //         } else if (res.cancel) {
+                  //           console.log('取消')
+                  //         }
+                  //       }
+                  // })
             }
       });
       },
