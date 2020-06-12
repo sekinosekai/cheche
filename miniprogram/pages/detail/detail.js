@@ -56,9 +56,24 @@ Page({
                                     showPin:false
                               })
                         }
-
+                        for(oid of res.data.addIDs){
+                              getwx(oid)
+                        }
                         // that.getSeller(res.data._openid, res.data._id)
                         that.getSeller(res.data._openid)
+                  }
+            })
+      },
+
+      getwx(m){
+            let that = this;
+            db.collection('user').where({
+                  _openid:m
+            }).get({
+                  success: function(res) {
+                        that.setData({
+                              wxlist: wxlist.push(res.data[0].wxnum)
+                        })
                   }
             })
       },
