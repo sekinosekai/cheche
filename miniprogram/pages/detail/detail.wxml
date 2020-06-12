@@ -48,22 +48,27 @@
       </view>
       <view class="deliver_box">
             <view class="deliver_first">
-                  <view class="deliver_title">微信号：</view>            
+                  <view class="deliver_title">拼单人微信号：</view>            
             </view>
-            <view class="deliver_kind">不知道{{publishinfo.place}}</view>
+            <!-- 显示微信号们 -->
+            <view class="wxlist">
+            <view wx:for="{{wxlist}}">
+                  {{item}}
+            </view>
+            </view>
       </view>
       <view class="deliver_box">
             <view class="deliver_first">
                   <view class="deliver_title">取货地点：</view>
                   <!-- <view class="deliver_kind">{{publishinfo.deliveryid==0?'自提':'帮送'}}</view> -->
             </view>
-            <view class="deliver_kind">不知道{{publishinfo.place}}</view>
+            <view class="deliver_kind">暂未发布{{publishinfo.place}}</view>
       </view>
       <view class="deliver_box">
             <view class="deliver_first">
                   <view class="deliver_title">取货时间：</view>            
             </view>
-            <view class="deliver_kind">不知道{{publishinfo.place}}</view>
+            <view class="deliver_kind">暂未发布{{publishinfo.place}}</view>
       </view>
       
       <!-- <view class="palceInput_box" wx:if="{{publishinfo.deliveryid==1}}">
@@ -116,8 +121,8 @@
 
 <!--底部导航-->
 <view style="height: 96rpx;"></view>
-<view class="tabbar">
-<view class="buy_box" wx:if="{{showPin}}">
+<view class="tabbar" wx:if="{{showPin}}">
+<view class="buy_box">
             <view class="buy shadow" bindtap="buy">我要拼单</view>
 </view>
 </view>

@@ -11,7 +11,8 @@ Page({
             first_title: true,
             place: '',
             timeDifference:"",//剩余时间
-            showPin:true//别人发布的拼单显示拼单按钮
+            showPin:true,//别人发布的拼单显示拼单按钮
+            wxlist:[] //wxids
       },
       onLoad(e) {
             this.getuserdetail();
@@ -32,7 +33,8 @@ Page({
                         that.setData({
                               // collegeName: JSON.parse(config.data).campus[parseInt(res.data.collegeid) + 1],
                               collegeName: JSON.parse(config.data).campus,
-                              publishinfo: res.data
+                              publishinfo: res.data,
+                              wxlist: res.data.addIDs //设置用户们的id
                         })
                         //计算剩余截至时间
                         var publishinfo = that.data.publishinfo
@@ -45,6 +47,15 @@ Page({
                               timeDifference:timeDifference,
                               restPersons:restPersons
                         })
+
+                        console.log(restPersons)
+                        if(restPersons == 0){
+                              console.log("1111111111111111111")
+                              that.setData({
+                                    showPin:false
+                              })
+                        }
+
                         // that.getSeller(res.data._openid, res.data._id)
                         that.getSeller(res.data._openid)
                   }
@@ -61,6 +72,17 @@ Page({
                               userinfo: res.data[0]
                         })
                         // that.getGood(n)
+                        
+                        //判别卖家是否为使用者
+                        console.log(res)
+                        console.log(app.openid)
+
+                        if(res.data[0]._openid == app.openid){
+                              console.log("=======++++++")
+                              that.setData({
+                                    showPin:false
+                              })
+                        }
                   }
             })
       },
@@ -126,7 +148,8 @@ Page({
                   // data 传入需要局部更新的数据
                   data: {
                     // 人数+1
-                    addPersons: _.inc(1)
+                    addPersons: _.inc(1),
+                    addIDs: _.push(app.openid)
                   },
                   success: function(res) {
                         var rest = that.data.restPersons;
@@ -140,6 +163,7 @@ Page({
                                     showPin:false
                               })
                         }
+                        
                       }
             })
             // wx.cloud.callFunction({

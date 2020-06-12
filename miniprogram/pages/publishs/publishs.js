@@ -10,7 +10,6 @@ Page({
     campus: JSON.parse(config.data).campus,
     Car:{
       me:"ming",
-      owner:"",
       name:"",
       price:0,
       unit:"",
@@ -117,9 +116,10 @@ Page({
       }))
     }    
     Promise.all(promiseArr).then(res=>{
+      console.log("==============")
+      console.log(e)
       cars.add({
         data: {
-          owner:"XiaoMing",//call JJ！！!!!!!!!!！！！ 缓存存储用户nickname
           name:e.detail.value.name,
           price:e.detail.value.price,
           unit:e.detail.value.unit,
@@ -127,8 +127,8 @@ Page({
           link:e.detail.value.link,
           platform:e.detail.value.platform,
           numOfPersons:e.detail.value.personNum,
-          addPersons:e.detail.value.addPersons, //参与拼单的人
-          addIDs:e.detail.value.addIDs,//拼单人wx
+          addPersons:0, //参与拼单的人
+          addIDs:[],//拼单人wx
           type:e.detail.value.type,
           date:e.detail.value.date,
           time:e.detail.value.time,

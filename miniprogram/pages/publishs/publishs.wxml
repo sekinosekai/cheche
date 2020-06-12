@@ -16,16 +16,16 @@
     <view class="title">平台</view>
     <input class="goodinfo" name="platform" placeholder="例如：淘宝/京东/bilibili"></input>
     <view class="title">校区</view>
-    <picker class="goodinfo" mode="selector" name="campus"  range="{{campus}}" range-key="name" bindchange="campusChange">已选：{{campus[Car.campus].name}}
+    <picker class="goodinfo" mode="selector" name="campus"  range="{{campus}}" range-key="name" bindchange="campusChange">选择：{{campus[Car.campus].name}}
     </picker>
     <view class="title">商品类别</view>
-    <picker class="goodinfo" mode="selector" name="type"  range="{{college}}" range-key="name" bindchange="typeChange">已选：{{college[Car.type].name}} 
+    <picker class="goodinfo" mode="selector" name="type"  range="{{college}}" range-key="name" bindchange="typeChange">选择：{{college[Car.type].name}} 
     </picker>
     <view class="title">拼单截止日期</view>
-    <picker class="goodinfo" mode="date" name="date" value="{{date}}" start="2020-05-020" end="2030-1-1" bindchange="dateChange">已选：{{Car.date}}
+    <picker class="goodinfo" mode="date" name="date" value="{{date}}" start="2020-05-020" end="2030-1-1" bindchange="dateChange">选择：{{Car.date}}
     </picker>
     <view class="title">截止时间</view>
-    <picker class="goodinfo" mode="time" name="time" value="{{time}}" start="09:00" end="17:30" bindchange="timeChange">已选：{{Car.time}} 
+    <picker class="goodinfo" mode="time" name="time" value="{{time}}" start="09:00" end="17:30" bindchange="timeChange">选择：{{Car.time}} 
     </picker>
     <button class="upload" type="warning" bindtap='uploadImgHandle'>上传图片</button>
     <view>
@@ -34,8 +34,8 @@
 	    </block>
     </view>
     <!--隐藏域-->
-    <input type="hidden" name="addPersons" value="0"></input>
-    <input type="hidden" name="addIDs"></input>
+    <!-- <input type="hidden" name="addPersons" value="0"></input> -->
+    <!-- <input type="hidden" name="addIDs"></input> -->
   <button class="submitButton" form-type="submit">确认发布</button>
     
 </form>

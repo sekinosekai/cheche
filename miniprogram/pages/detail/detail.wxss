@@ -139,7 +139,7 @@
       color: rgb(150, 150, 150);
 }
 
-.sex {
+/* .sex {
       width: 100rpx;
       height: 100%;
       display: flex;
@@ -151,7 +151,7 @@
       width: 50rpx;
       height: 50rpx;
       border-radius: 50%;
-}
+} */
 
 .notes_box {
       width: 100%;
@@ -234,6 +234,13 @@
       color: #a5a5a5;
 }
 
+.wxlist {
+      font-size: 28rpx;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-around;
+}
 .deliver_kind {
       font-size: 28rpx;
       letter-spacing: 2rpx;
@@ -302,7 +309,7 @@
 
 .tabbar {
       width: 100%;
-      height: 96rpx;
+      height: 120rpx;
       background: #fff;
       opacity: 0.9;
       position: fixed;
@@ -310,7 +317,7 @@
       bottom: 0rpx;
       display: flex;
       padding: 10rpx;
-      border-top: 1rpx solid #eee;
+      /* border-top: 1rpx solid #eee; */
       align-items: center;
       justify-content: center;
       box-sizing: border-box;
