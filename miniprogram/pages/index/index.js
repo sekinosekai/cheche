@@ -108,17 +108,17 @@ Page({
             } else {
                   var collegeid = that.data.collegeCur+1 + '' //小程序搜索必须对应格式
             }
+            //获取当前时间
+            var nowDate=config.formTime(new Date());
             db.collection('Cars').where({
                   //status: 0,
                   // dura: _.gt(new Date().getTime()),
-                   type: collegeid
+                   type: collegeid,
+                   date:_.gte(nowDate)
             }).orderBy('date','asc').limit(20).get({
                   success: function(res) {
                         wx.stopPullDownRefresh(); //暂停刷新动作
-                        console.log("========"+res.data)
                         if (res.data.length == 0) {
-                              console.log("lllll"+res)
-
                               that.setData({
                                     nomore: true,
                                     list: [],

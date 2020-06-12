@@ -70,22 +70,24 @@ Page({
   },
   //提交发布
   onSubmit:function(e){
+    let that = this;
     if (!app.openid) {
       wx.showModal({
             title: '温馨提示',
             content: '该功能需要注册方可使用，是否马上去注册',
             success(res) {
                   if (res.confirm) {
-                        wx.navigateTo({
-                              url: '/pages/login/login',
-                        })
+                    console.log("==================去注册")
+                      wx.navigateTo({
+                        url: '../login/login',
+                      })
                   }
             }
       })
       return false
-}
-    const that = this
-    console.log(that.data.Car.me+"==========fileIDs")
+      }
+    // const that = this
+    // console.log(that.data.Car.me+"==========fileIDs")
     const db = wx.cloud.database()
     const cars = db.collection('Cars')
     //console.log(e);
@@ -140,7 +142,10 @@ Page({
           wx.showToast({
             title: '提交成功',
           })
-          console.log("========================发布完成跳转首页")
+          var name = "Car.name"
+         this.setData({
+           [name]:""
+         })
           wx.switchTab({
             url: '../index/index',
       })
@@ -149,76 +154,5 @@ Page({
           console.log(error)
         })
     })
-  
-    // cars.add({
-    //   data:{
-    //     owner:"XiaoMing",
-    //     name:e.detail.value.name,
-    //     price:e.detail.value.price,
-    //     description:e.detail.value.description,
-    //     link:e.detail.value.link,
-    //     numOfPersons:e.detail.value.numOfPersons,
-    //     date:e.detail.value.date,
-    //     time:e.detail.value.time
-    //   }
-    // }).then(res=>{
-    //   console.log(res)
-      
-    // })
-  },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
   }
 })
