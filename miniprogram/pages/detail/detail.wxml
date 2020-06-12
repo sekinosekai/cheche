@@ -25,22 +25,26 @@
             <!-- 待加昵称到缓存 -->
                   <view class="user_name">{{userinfo.info.nickName}}</view>
                   <view class="local_box">
-                        <image src="/images/local.png"></image>
-                        <view>{{userinfo.campus.name}}</view>
+                        <!-- <image src="/images/local.png"></image> -->
+                        <view>@{{userinfo.campus.name}}</view>
                   </view>
             </view>
             <!-- <view class="sex">
                   <image lazy-load src="{{userinfo.info.gender==0?'/images/none.png':(userinfo.info.gender==1?'/images/boy.png':'/images/girl.png')}}"></image>
             </view> -->
       </view>
-      <view class="time_box">
-            <!-- <view class="kind">{{collegeName.name}}类书</view> -->
+      <!-- <view class="time_box">
+            <view class="kind">{{collegeName.name}}类书</view>
             <view class="time">发布于{{morejs.timelog(publishinfo.creat)}}</view>
-      </view>
-      <view class="deliver_box">
+      </view> -->
+      <!-- <view class="deliver_box">
             <view class="deliver_first">
                   <view class="deliver_title" bindtap="copyTBL">点此复制链接或口令</view>            
             </view>
+      </view> -->
+      <view class="copy_box">
+                  <image src="/images/copy.png"></image>
+                  <view class="deliver_title" bindtap="copyTBL">点此复制链接或口令({{publishinfo.platform}})</view>            
       </view>
       <view class="deliver_box">
             <view class="deliver_first">
@@ -109,8 +113,15 @@
             </view>
       </view>
 </view>
-<view style="height: 96rpx;"></view>
+
 <!--底部导航-->
+<view style="height: 96rpx;"></view>
+<view class="tabbar">
+<view class="buy_box">
+            <view class="buy shadow" bindtap="buy">我要拼单</view>
+</view>
+</view>
+
 <!-- <view class="tabbar">
       <view class="t_card">
             <image src="/images/home.png"></image>

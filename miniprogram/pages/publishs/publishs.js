@@ -16,7 +16,10 @@ Page({
       unit:"",
       description:"",
       link:"",
+      platform:"",
       numOfPersons:0,
+      addPersons:0, //参与拼单的人
+      addIDs:[],//拼单人wx
       time:"",
       date:"",
       type:"",
@@ -120,7 +123,10 @@ Page({
           unit:e.detail.value.unit,
           description:e.detail.value.description,
           link:e.detail.value.link,
+          platform:e.detail.value.platform,
           numOfPersons:e.detail.value.numOfPersons,
+          addPersons:e.detail.value.addPersons, //参与拼单的人
+          addIDs:e.detail.value.addIDs,//拼单人wx
           type:e.detail.value.type,
           date:e.detail.value.date,
           time:e.detail.value.time,

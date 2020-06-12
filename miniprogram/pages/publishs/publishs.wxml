@@ -13,6 +13,8 @@
     <input class="goodinfo" name="personNum" placeholder="还需要几件才拼满"></input>
     <view class="title">链接或口令</view>
     <input class="goodinfo" name="link"></input>
+    <view class="title">平台</view>
+    <input class="goodinfo" name="platform" placeholder="例如：淘宝/京东/bilibili"></input>
     <view class="title">校区</view>
     <picker class="goodinfo" mode="selector" name="campus"  range="{{campus}}" range-key="name" bindchange="campusChange">已选：{{campus[Car.campus].name}}
     </picker>
@@ -31,6 +33,9 @@
 	 	    <image src='{{item}}' mode='aspectFill'></image>
 	    </block>
     </view>
+    <!--隐藏域-->
+    <input type="hidden" name="addPersons"></input>
+    <input type="hidden" name="addIDs"></input>
   <button class="submitButton" form-type="submit">确认发布</button>
     
 </form>
