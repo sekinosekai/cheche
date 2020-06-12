@@ -34,7 +34,7 @@
 	    </block>
     </view>
     <!--隐藏域-->
-    <input type="hidden" name="addPersons"></input>
+    <input type="hidden" name="addPersons" value="0"></input>
     <input type="hidden" name="addIDs"></input>
   <button class="submitButton" form-type="submit">确认发布</button>
     

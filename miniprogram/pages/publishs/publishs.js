@@ -126,7 +126,7 @@ Page({
           description:e.detail.value.description,
           link:e.detail.value.link,
           platform:e.detail.value.platform,
-          numOfPersons:e.detail.value.numOfPersons,
+          numOfPersons:e.detail.value.personNum,
           addPersons:e.detail.value.addPersons, //参与拼单的人
           addIDs:e.detail.value.addIDs,//拼单人wx
           type:e.detail.value.type,

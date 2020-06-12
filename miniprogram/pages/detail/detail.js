@@ -10,7 +10,8 @@ Page({
       data: {
             first_title: true,
             place: '',
-            timeDifference:""//剩余时间
+            timeDifference:"",//剩余时间
+            showPin:true//别人发布的拼单显示拼单按钮
       },
       onLoad(e) {
             this.getuserdetail();
@@ -33,11 +34,16 @@ Page({
                               collegeName: JSON.parse(config.data).campus,
                               publishinfo: res.data
                         })
+                        //计算剩余截至时间
+                        var publishinfo = that.data.publishinfo
                         var dateTime = that.data.publishinfo.date+" "+that.data.publishinfo.time;
                         var nowDate=config.formTime(new Date());
                         var timeDifference=config.timeDifference(nowDate,dateTime);
+                         //计算剩余人数
+                        var restPersons = publishinfo.numOfPersons-publishinfo.addPersons
                         that.setData({
-                              timeDifference:timeDifference
+                              timeDifference:timeDifference,
+                              restPersons:restPersons
                         })
                         // that.getSeller(res.data._openid, res.data._id)
                         that.getSeller(res.data._openid)
@@ -99,8 +105,8 @@ Page({
       
       //购买检测
       buy(e) {
-            let that = this;
             console.log(e)
+            let that = this;
             if (!app.openid) {
                   wx.showModal({
                         title: '温馨提示',
@@ -115,30 +121,39 @@ Page({
                   })
                   return false
             }
-            //好像得用云函数
-            // const _ = db.command
-            // db.collection('Cars').doc("5a93cec95ee309bd0082a893097a85f8").update({
-            //       // data 传入需要局部更新的数据
-            //       data: {
-            //         // 人数+1
-            //         addPersons: _.inc(1)
-            //       },
-            //       success: function(res) {
-            //             console.log(res.data)
-            //           }
-            // })
-            wx.cloud.callFunction({
-                  // 云函数名称
-                  name: 'pin',
-                  // 传给云函数的参数
+            const _ = db.command
+            db.collection('Cars').doc(that.data.id).update({
+                  // data 传入需要局部更新的数据
                   data: {
-                    name: e
+                    // 人数+1
+                    addPersons: _.inc(1)
                   },
-                  success: function (res) {
-                    console.log(res)
-                  },
-                  fail: console.error
-                })
+                  success: function(res) {
+                        var rest = that.data.restPersons;
+                        that.setData({
+                              restPersons:rest-1
+                        })
+                        console.log(that.data.restPersons)
+                        if(that.data.restPersons == 0){
+                              console.log("1111111111111111111")
+                              that.setData({
+                                    showPin:false
+                              })
+                        }
+                      }
+            })
+            // wx.cloud.callFunction({
+            //       // 云函数名称
+            //       name: 'pin',
+            //       // 传给云函数的参数
+            //       data: {
+            //         name: e
+            //       },
+            //       success: function (res) {
+            //         console.log(res)
+            //       },
+            //       fail: console.error
+            //     })
             
 
             // if (that.data.publishinfo.deliveryid == 1) {
