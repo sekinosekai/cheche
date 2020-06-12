@@ -137,8 +137,28 @@ function days() {
       let date = year + "" + month + day;
       return date;
 }
+
+//时间差
+function timeDifference(faultDate, completeTime){
+var stime = Date.parse(new Date(faultDate));
+var etime = Date.parse(new Date(completeTime));
+var usedTime = etime - stime; //两个时间戳相差的毫秒数
+var days = Math.floor(usedTime / (24 * 3600 * 1000));
+//计算出小时数
+var leave1 = usedTime % (24 * 3600 * 1000); //计算天数后剩余的毫秒数
+var hours = Math.floor(leave1 / (3600 * 1000));
+//计算相差分钟数
+var leave2 = leave1 % (3600 * 1000); //计算小时数后剩余的毫秒数
+var minutes = Math.floor(leave2 / (60 * 1000));
+var dayStr = days == 0 ? "" : days + "天";
+var hoursStr = hours == 0 ? "" : hours + "时";
+var time = dayStr + hoursStr + minutes + "分";
+return time;
+}
+
 module.exports = {
       data: JSON.stringify(data),
       formTime: formTime,
-      days: days
+      days: days,
+      timeDifference:timeDifference
 }

@@ -22,7 +22,8 @@
     "pages/edit/edit",
     "pages/web/web",
     "pages/poster/poster",
-    "pages/publishs/publishs"
+    "pages/publishs/publishs",
+    "pages/test/test"
   ],
   "window": {
     "backgroundColor": "#4db7ff",

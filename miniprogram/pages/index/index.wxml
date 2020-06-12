@@ -1,5 +1,4 @@
 <wxs src="../../common.wxs" module="morejs" />
-
 <!-- banner设计，需要改成静止图片 -->
 <image src="/images/banner.png" class="banner_image" />
 <!-- <swiper class="banner" indicator-dots autoplay indicator-active-color="#fbbd08" circular>
@@ -82,7 +81,7 @@
                               </view>
                               <view class="list_between">
                                     <view class="list_price">￥{{item.price}}元/{{item.unit}}</view>
-                                    <view class="list_time">{{morejs.timelog(item.creat )}}发布
+                                    <view class="list_time">{{item.date}} {{item.time}}截止
                                     </view>
                               </view>
                         </view>

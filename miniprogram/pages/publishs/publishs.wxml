@@ -3,7 +3,7 @@
 <view class="contain">
 <view class="card">
 <form bindsubmit="onSubmit">
-    <view class="title">商品名称</view>
+    <view class="title" value="{{Car.name}}">商品名称</view>
     <input class="goodinfo" name="name"></input>
     <view class="title">单价</view>
     <input class="goodinfo" name="price" placeholder="输入平摊后的单价"></input>
