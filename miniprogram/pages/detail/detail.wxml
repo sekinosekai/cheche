@@ -48,6 +48,12 @@
       </view>
       <view class="deliver_box">
             <view class="deliver_first">
+                  <view class="deliver_title">微信号：</view>            
+            </view>
+            <view class="deliver_kind">{{userinfo.wxnum}}</view>
+      </view>
+      <view class="deliver_box" wx:if="{{showId}}">
+            <view class="deliver_first">
                   <view class="deliver_title">拼单人微信号：</view>            
             </view>
             <!-- 显示微信号们 -->
@@ -57,6 +63,7 @@
             </view>
             </view>
       </view>
+      
       <view class="deliver_box">
             <view class="deliver_first">
                   <view class="deliver_title">取货地点：</view>

@@ -12,6 +12,7 @@ Page({
             place: '',
             timeDifference:"",//剩余时间
             showPin:true,//别人发布的拼单显示拼单按钮
+            showId:false,
             wxlist:[] //wxids
       },
       onLoad(e) {
@@ -80,7 +81,8 @@ Page({
                         if(res.data[0]._openid == app.openid){
                               console.log("=======++++++")
                               that.setData({
-                                    showPin:false
+                                    showPin:false,
+                                    showId:true
                               })
                         }
                   }
