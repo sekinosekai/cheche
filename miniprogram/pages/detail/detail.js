@@ -115,19 +115,31 @@ Page({
                   })
                   return false
             }
-            /* 好像得用云函数
-            const _ = db.command
-            db.collection('Cars').doc("5a93cec95ee309bd0082a893097a85f8").update({
-                  // data 传入需要局部更新的数据
+            //好像得用云函数
+            // const _ = db.command
+            // db.collection('Cars').doc("5a93cec95ee309bd0082a893097a85f8").update({
+            //       // data 传入需要局部更新的数据
+            //       data: {
+            //         // 人数+1
+            //         addPersons: _.inc(1)
+            //       },
+            //       success: function(res) {
+            //             console.log(res.data)
+            //           }
+            // })
+            wx.cloud.callFunction({
+                  // 云函数名称
+                  name: 'pin',
+                  // 传给云函数的参数
                   data: {
-                    // 人数+1
-                    addPersons: _.inc(1)
+                    name: e
                   },
-                  success: function(res) {
-                        console.log(res.data)
-                      }
-            })
-            */
+                  success: function (res) {
+                    console.log(res)
+                  },
+                  fail: console.error
+                })
+            
 
             // if (that.data.publishinfo.deliveryid == 1) {
             //       if (that.data.place == '') {

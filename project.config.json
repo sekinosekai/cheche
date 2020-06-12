@@ -183,6 +183,13 @@
 					"id": -1,
 					"name": "发布s",
 					"pathName": "pages/publishs/publishs",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "测试",
+					"pathName": "pages/test/test",
 					"scene": null
 				}
 			]
