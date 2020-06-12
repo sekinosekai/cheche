@@ -7,7 +7,7 @@ page {
       display: flex;
       box-sizing: border-box;
       padding: 20rpx 36rpx 30rpx 0;
-      background: #fbbd08;
+      background: #4db7ff;
       position: relative;
       justify-content: flex-end;
 }

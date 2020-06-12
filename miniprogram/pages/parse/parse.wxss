@@ -1,7 +1,7 @@
 .contain {
       width: 100%;
       height: 260rpx;
-      background: #fbbd08;
+      background: #4db7ff;
       display: flex;
       box-sizing: border-box;
       padding: 30rpx;
@@ -71,7 +71,7 @@
       margin-top: 20rpx;
       width: 80%;
       height: 80rpx;
-      background: #fbbd08;
+      background: #4db7ff;
       color: #fff;
       border-radius: 50rpx;
       overflow: hidden;
@@ -89,8 +89,8 @@
       justify-content: center;
       align-items: center;
       background: #fff;
-      color: #fbbd08;
-      border: 2rpx solid #fbbd08;
+      color: #4db7ff;
+      border: 2rpx solid #4db7ff;
       border-radius: 40rpx 0 0 40rpx;
       box-sizing: border-box;
 }

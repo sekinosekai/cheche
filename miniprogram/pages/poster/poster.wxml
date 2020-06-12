@@ -7,13 +7,13 @@
 <view class="bottom" bindtap="eventSave">
        <view>保存到手机</view>
 </view>
-<van-dialog confirm-button - color='#fbbd08' id="van-dialog" />
+<van-dialog confirm-button - color='#4db7ff' id="van-dialog" />
 
 <van-dialog
     title="授权失败"
     message="您之前误点了拒绝授权，请允许保存此图片至您的相册"
     show="{{ show }}"
-    confirm-button-color="#fbbd08" 
+    confirm-button-color="#4db7ff" 
    confirm-button-open-type="openSetting"
     bind:opensetting="getSetting"
   >

@@ -99,7 +99,7 @@ page {
       display: flex;
       justify-content: center;
       align-items: center;
-      background: #fbbd08;
+      background: #4db7ff;
       color: #fff;
       border-radius: 40rpx;
       letter-spacing: 4rpx;
@@ -344,7 +344,7 @@ picker {
       display: flex;
       justify-content: center;
       align-items: center;
-      background: #fbbd08;
+      background: #4db7ff;
       color: #fff;
       border-radius: 40rpx;
       letter-spacing: 4rpx;
@@ -394,7 +394,7 @@ picker {
       width: 500rpx;
       height: 80rpx;
       border-radius: 40rpx;
-      background: #fbbd08;
+      background: #4db7ff;
       color: #fff;
       display: flex;
       align-items: center;

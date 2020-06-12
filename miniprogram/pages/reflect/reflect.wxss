@@ -16,7 +16,7 @@
       flex-direction: column;
       justify-content: space-between;
       height: 240rpx;
-      background: linear-gradient(to bottom right, #fbbd08, #ffee04);
+      background: linear-gradient(to bottom right, #4db7ff, #ffee04);
 }
 
 .title {
@@ -41,7 +41,7 @@
 .list view {
       font-size: 28rpx;
       letter-spacing: 2rpx;
-      color: #fbbd08;
+      color: #4db7ff;
 }
 
 .list input {
@@ -55,7 +55,7 @@
 
 .confirm {
       margin-top: 80rpx;
-      background: #fbbd08;
+      background: #4db7ff;
       border-radius: 20rpx;
       color: #fff;
       width: 100%;

@@ -67,7 +67,7 @@
       width: 600rpx;
       height: 90rpx;
       border-radius: 45rpx;
-      background: #fbbd08;
+      background: #4db7ff;
       font-size: 30rpx;
       color: #fff;
       display: flex;

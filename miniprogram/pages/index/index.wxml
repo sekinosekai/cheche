@@ -1,7 +1,7 @@
 <wxs src="../../common.wxs" module="morejs" />
 <!-- banner设计，需要改成静止图片 -->
 <image src="/images/banner.png" class="banner_image" />
-<!-- <swiper class="banner" indicator-dots autoplay indicator-active-color="#fbbd08" circular>
+<!-- <swiper class="banner" indicator-dots autoplay indicator-active-color="#4db7ff" circular>
       <block wx:for="{{banner}}" wx:key="id">
             <swiper-item>
                   <image lazy-load src="{{item.img}}" bindtap="goweb" data-web="{{item}}" class="banner_image" />
@@ -76,11 +76,11 @@
                               <view class="list_word">
                                     <view class="list_title text-cut">{{item.name}}
                                     </view>
-                                    <view class="list_author text-cut">{{campus[item.campus].name}}
+                                    <view class="list_author text-cut">@{{campus[item.campus].name}}
                                     </view>
                               </view>
                               <view class="list_between">
-                                    <view class="list_price">￥{{item.price}}元/{{item.unit}}</view>
+                                    <view class="list_price">￥{{item.price}}/{{item.unit}}</view>
                                     <view class="list_time">{{item.date}} {{item.time}}截止
                                     </view>
                               </view>

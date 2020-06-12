@@ -71,8 +71,8 @@
 .ok-btn > view {
   height: 40px;
   width: 120px;
-  background-color: #fbbd08;
-  box-shadow: 0 5px 10px -px #fbbd08;
+  background-color: #4db7ff;
+  box-shadow: 0 5px 10px -px #4db7ff;
   display: flex;
   align-items: center;
   justify-content: center;

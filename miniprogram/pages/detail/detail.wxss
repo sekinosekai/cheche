@@ -86,7 +86,7 @@
       font-size: 32rpx;
       font-weight: 600;
       color: #000;
-      border-bottom: 4rpx solid #fbbd08;
+      border-bottom: 4rpx solid #4db7ff;
 }
 
 .user_box {

@@ -45,7 +45,7 @@
                         <view class="b_name">类别</view>
                         <radio-group class="kind-group" bindchange="kindChange">
                               <label class="b_radio" wx:for="{{kind}}" wx:key="id">
-                                    <radio color="#fbbd08" value="{{item.id}}" checked="{{item.check}}" />{{item.name}}
+                                    <radio color="#4db7ff" value="{{item.id}}" checked="{{item.check}}" />{{item.name}}
                               </label>
                         </radio-group>
                   </view>
@@ -68,7 +68,7 @@
                         <view class="name">取货方式</view>
                         <radio-group class="kind-group" bindchange="delChange">
                               <label class="b_radio" wx:for="{{delivery}}" wx:key="id">
-                                    <radio color="#fbbd08" value="{{item.id}}" checked="{{item.check}}" />{{item.name}}
+                                    <radio color="#4db7ff" value="{{item.id}}" checked="{{item.check}}" />{{item.name}}
                               </label>
                         </radio-group>
                   </view>

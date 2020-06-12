@@ -1,5 +1,5 @@
 page {
-      background: #fbbd08;
+      background: #4db7ff;
 }
 
 .contain {
@@ -154,7 +154,7 @@ page {
       font-size: 30rpx;
       width: 620rpx;
       height: 80rpx;
-      background: #fbbd08;
+      background: #4db7ff;
       color: #000;
       border-radius: 20rpx;
       display: flex;

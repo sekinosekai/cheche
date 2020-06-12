@@ -28,7 +28,7 @@
       align-items: center;
       font-size: 30rpx;
       letter-spacing: 4rpx;
-      background: #fbbd08;
+      background: #4db7ff;
       color: #ffffff;
       width: 90%;
       height: 90rpx;
