@@ -16,11 +16,11 @@
   margin-right: 120rpx;
   border-width: 20rpx;
   border-style: solid;
-  border-color:  transparent transparent #fbbd08 transparent;
+  border-color:  transparent transparent #4db7ff transparent;
 }
 .body {
-  background-color: #fbbd08;
-  box-shadow: 0 10rpx 20rpx -10rpx #fbbd08;
+  background-color: #4db7ff;
+  box-shadow: 0 10rpx 20rpx -10rpx #4db7ff;
   border-radius: 12rpx;
   display: flex;
   align-items: center;

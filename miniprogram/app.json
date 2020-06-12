@@ -25,7 +25,7 @@
     "pages/publishs/publishs"
   ],
   "window": {
-    "backgroundColor": "#fbbd08",
+    "backgroundColor": "#4db7ff",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#4db7ff",
     "navigationBarTitleText": "i拼",
