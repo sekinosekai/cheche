@@ -134,18 +134,18 @@
       justify-content: space-between;
 }
 
-.book {
+.item {
       display: flex;
       flex-direction: column;
       width: 100%;
 }
 
-.book_name {
+.item_name {
       font-size: 30rpx;
       letter-spacing: 2rpx;
 }
 
-.book_author {
+.item_time {
       padding-top: 10rpx;
       font-size: 26rpx;
       letter-spacing: 3rpx;

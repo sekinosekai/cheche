@@ -12,6 +12,12 @@ Page({
             page: 1,
             scrollTop: 0,
             nomore: false,
+            tab: [{
+                  name: '全部',
+                  id: 0,
+                  },
+            ],
+            tabid: 0,
       },
 
       /**
@@ -111,17 +117,9 @@ Page({
       //查看详情
       detail(e) {
             let that = this;
-            let detail = e.currentTarget.dataset.detail;
-            if (detail.status == 0) {
-                  wx.navigateTo({
-                        url: '/pages/detail/detail?scene=' + detail._id,
-                  })
-            }
-            if (detail.status == 1) {
-                  wx.navigateTo({
-                        url: '/pages/sell/detail/detail?id=' + detail._id,
-                  })
-            }
+            wx.navigateTo({
+                  url: '/pages/detail/detail?scene=' + e.currentTarget.dataset.id,
+            })
       },
       //下拉刷新
       onPullDownRefresh() {

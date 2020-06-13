@@ -14,35 +14,30 @@ Page({
                         name: '全部',
                         id: 0,
                   },
-                  {
-                        name: '交易中',
-                        id: 1,
-                  },
-                  {
-                        name: '交易完成',
-                        id: 2,
-                  },
-                  {
-                        name: '已取消',
-                        id: 3,
-                  }
+                  // {
+                  //       name: '交易中',
+                  //       id: 1,
+                  // },
+                  // {
+                  //       name: '交易完成',
+                  //       id: 2,
+                  // },
+                  // {
+                  //       name: '已取消',
+                  //       id: 3,
+                  // }
             ],
             tabid: 0,
       },
       //导航栏切换
-      changeTab(e) {
-            let that = this;
-            that.setData({
-                  tabid: e.currentTarget.dataset.id
-            })
-            that.getlist();
-      },
+      // changeTab(e) {
+      //       let that = this;
+      //       that.setData({
+      //             tabid: e.currentTarget.dataset.id
+      //       })
+      //       that.getlist();
+      // },
       //跳转详情页
-      godetail(e) {
-            wx.navigateTo({
-                  url: '/pages/order/detail/detail?id=' + e.currentTarget.dataset.id,
-            })
-      },
       onLoad() {
             wx.showLoading({
                   title: '加载中',
@@ -58,9 +53,8 @@ Page({
             } else {
                   var statusid = parseInt(status) //小程序搜索必须对应格式
             }
-            db.collection('order').where({
-                  status: statusid,
-                  _openid: app.openid
+            db.collection('Cars').where({
+                  addIDs: app.openid
             }).orderBy('creat', 'desc').get({
                   success(re) {
                         wx.stopPullDownRefresh(); //暂停刷新动作
@@ -71,6 +65,12 @@ Page({
                         })
                         wx.hideLoading();
                   }
+            })
+      },
+      detail(e) {
+            let that = this;
+            wx.navigateTo({
+                  url: '/pages/detail/detail?scene=' + e.currentTarget.dataset.id,
             })
       },
       //取消订单(仅当订单为交易中时候，取消后卖家状态恢复)

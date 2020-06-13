@@ -10,6 +10,7 @@
 <view class="contain" wx:if="{{list.length!==0}}">
       <block wx:for="{{list}}" wx:key="_id">
             <view class="card shadow" bindtap="godetail" data-id="{{item._id}}">
+                  <!--
                   <view class="top">
                   <view class="top1">
                         <view class="title {{item.status==1?'text-red':''}}">
@@ -19,21 +20,24 @@
                         <view class="date">{{morejs.timelog(item.creat)}}</view>
                   </view>
                   </view>
+                  -->
                   <view class="center">
-                        <image src="{{item.bookinfo.pic}}"></image>
+                        <image src="{{item.fileIDs[0]}}"></image>
                         <view class="content">
-                              <view class="book">
-                                    <view class="book_name text-cut">{{item.bookinfo.title}}</view>
-                                    <view class="book_author text-cut">{{item.bookinfo.author}}</view>
+                              <view class="item">
+                                    <view class="item_name text-cut">{{item.name}}</view>
+                                    <view class="item_time text-cut">{{item.date}} {{item.time}}截止</view>
                               </view>
-                              <view class="price">￥{{item.price}}.00元</view>
+                              <view class="price">￥{{item.price}}元</view>
                         </view>
                   </view>
+                  <!--
                   <view class="bottom">
                           <view wx:if="{{item.status==1}}" class="cancel" catchtap="cancel" data-ord="{{item}}">取消订单</view>
                           <view wx:if="{{item.status==1}}" class="confirm" catchtap="confirm" data-ord="{{item}}">确认收货</view>
                           <view wx:if="{{item.status==2||item.status==3}}" class="cancel" catchtap="delete" data-ord="{{item}}">删除订单</view>
                   </view>
+                  -->
             </view>
       </block>
 </view>
