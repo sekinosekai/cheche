@@ -13,7 +13,10 @@ Page({
             timeDifference:"",//剩余时间
             showPin:true,//别人发布的拼单显示拼单按钮
             showId:false,
-            wxlist:[] //wxids
+            wxlist:[], //wxids
+            needNum: 0, //需要的数量
+            showModal:false, //拼单确认框
+            showCancel: false //对已参与拼单的用户显示     
       },
       onLoad(e) {
             this.getuserdetail();
@@ -49,7 +52,7 @@ Page({
                               restPersons:restPersons
                         })
 
-                        console.log(restPersons)
+                        // console.log(restPersons)
                         if(restPersons == 0){
                               console.log("1111111111111111111")
                               that.setData({
@@ -58,6 +61,12 @@ Page({
                         }
                         for(oid of res.data.addIDs){
                               getwx(oid)
+                        }
+                        if(that.data.publishinfo.addIDs.indexOf(app.openid) != -1){
+                              that.setData({
+                                    showCancel:true,
+                                    showPin:false
+                              })
                         }
                         // that.getSeller(res.data._openid, res.data._id)
                         that.getSeller(res.data._openid)
@@ -141,9 +150,47 @@ Page({
             }
       });
       },
-      
+
+      // 弹窗
+      showDialogBtn: function () {
+            this.setData({
+              showModal: true
+            })
+          },
+      /**
+       * 弹出框蒙层截断touchmove事件
+       */
+      preventTouchMove: function () {
+      },
+      inputChange: function(e){
+            this.setData({
+                  needNum: e.detail.value
+                });
+      },
+      /**
+       * 隐藏模态对话框
+       */
+      hideModal: function () {
+        this.setData({
+          showModal: false
+        });
+      },
+      /**
+       * 对话框取消按钮点击事件
+       */
+      onCancel: function () {
+        this.hideModal();
+      },
+      /**
+       * 对话框确认按钮点击事件
+       */
+      // onConfirm: function () {
+      //   this.hideModal();
+      // },
+
       //购买检测
       buy(e) {
+            this.hideModal()
             console.log(e)
             let that = this;
             if (!app.openid) {
@@ -160,18 +207,22 @@ Page({
                   })
                   return false
             }
+            console.log(that.data.id)
+
             const _ = db.command
             db.collection('Cars').doc(that.data.id).update({
                   // data 传入需要局部更新的数据
                   data: {
                     // 人数+1
-                    addPersons: _.inc(1),
-                    addIDs: _.push(app.openid)
+                    addPersons: _.inc(this.data.needNum),
+                    addIDs: _.push(app.openid),
+                    addNum: _.push(this.data.needNum)
                   },
                   success: function(res) {
                         var rest = that.data.restPersons;
+                        console.log("======"+this.data.needNum)
                         that.setData({
-                              restPersons:rest-1
+                              restPersons:rest-this.data.needNum
                         })
                         console.log(that.data.restPersons)
                         if(that.data.restPersons == 0){
@@ -180,9 +231,60 @@ Page({
                                     showPin:false
                               })
                         }
-                        
                       }
             })
+      },
+      //取消后
+      cancelBtn(e){
+            const _ = db.command
+            let that = this;
+            db.collection('Cars').doc(e).get({
+                  success: function(res) {
+                        var ind = res.data.addIDs.indexOf(app,openid);
+                        var needNum = res.data.addNum[ind];
+                        that.setData({
+                              needNum: needNum
+                        })
+                        var addPersons_new = res.data.addPersons - needNum
+                        var addIDs_new = res.data.addIDs.splice(ind,1)
+                        var addNum_new = res.data.addNum.splice(ind,1)
+                        db.collection('Cars').doc(that.data.id).update({
+                              // data 传入需要局部更新的数据
+                              data: {
+                                // 人数+1
+                                addPersons: addPersons_new,
+                                addIDs: addIDs_new,
+                                addNum: addNum_new
+                              },
+                              success: function(res) {
+                                    console.log("删除成功！")
+                                    
+                                  }
+                        })
+                  }
+            })
+      },
+
+      //确认框
+      // setValue: function (e) {
+      // this.setData({
+      //       needNum: e.detail.value
+      // })
+      // },
+      // cancel: function () {
+      // var that = this
+      // that.setData({
+      //       isShowConfirm: false,
+      // })
+      // },
+      // confirmAcceptance:function(){
+      // var that = this
+      // that.setData({
+      //       isShowConfirm: false,
+      // })
+      // },
+
+
             // wx.cloud.callFunction({
             //       // 云函数名称
             //       name: 'pin',
@@ -208,7 +310,7 @@ Page({
             //       that.getStatus();
             // }
             // that.getStatus();
-      },
+
       //获取订单状态
       getStatus() {
             let that = this;

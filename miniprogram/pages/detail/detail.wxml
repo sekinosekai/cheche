@@ -3,7 +3,9 @@
       <view class="top_img">
             <image lazy-load src="{{publishinfo.fileIDs}}"></image>
       </view>
-      <view class="left">剩余{{restPersons}}个，还有{{timeDifference}}截止</view>
+      <view class="left" wx:if="{{restPersons > 0}}">剩余{{restPersons}}个，还有{{timeDifference}}截止</view>
+      <view class="left" wx:else>已拼满，还有{{timeDifference}}截止</view>
+
       <view class="title text-cut">{{publishinfo.name}}</view>
       <!-- <view class="author  text-cut">{{publishinfo.bookinfo.author}}</view> -->
       <view class="price_box">
@@ -130,9 +132,60 @@
 <view style="height: 96rpx;"></view>
 <view class="tabbar" wx:if="{{showPin}}">
 <view class="buy_box">
-            <view class="buy shadow" bindtap="buy">我要拼单</view>
+            <!-- <view class="buy shadow" bindtap="buy">我要拼单</view> -->
+            <view class="buy shadow" bindtap="showDialogBtn">我要拼单</view>
+
 </view>
 </view>
+<!--底部导航，取消拼单-->
+<view style="height: 96rpx;"></view>
+<view class="tabbar" wx:if="{{showCancel}}">
+<view class="buy_box">
+            <view class="buy shadow" bindtap="cancelBtn">取消拼单</view>
+
+</view>
+</view>
+
+<!-- <button class="show-btn" bindtap="showDialogBtn">弹窗</button> -->
+<!--弹窗-->
+<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+<view class="modal-dialog" wx:if="{{showModal}}">
+  <view class="modal-title">添加数量</view>
+  <view class="modal-content">
+    <view class="modal-input">
+      <input placeholder-class="input-holder" type="number" maxlength="10" bindinput="inputChange" class="input" placeholder="请输入数量（1-{{restPersons}}之间）"></input>
+    </view>
+  </view>
+  <view class="modal-footer">
+    <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+    <view class="btn-confirm" bindtap="buy" data-status="confirm">确定</view>
+  </view>
+</view>
+
+<!-- 拼单弹窗 -->
+    <!-- <block wx:if="{{isShowConfirm}}">
+      <view class='toast-box'>
+        <view class='toastbg'></view>
+        <view class='showToast'>
+            <view class='toast-title'>
+                <text>选择数量</text>
+            </view>
+            <view class='toast-main'>
+                <view class='toast-input'>
+                    <input type='password' placeholder='请输入1-{{restPersons}}之间的数' bindinput='setValue'></input>
+                </view>
+            </view>
+            <view class='toast-button'>
+                <view class='button1'>
+                    <button catchtap='cancel'>取消</button>
+                </view>
+                <view class='button2'>
+                    <button data-url="../allOrder/allOrder" catchtap='confirmAcceptance'>确定</button>
+                </view>
+            </view>
+        </view>
+    </view>
+  </block> -->
 
 <!-- <view class="tabbar">
       <view class="t_card">

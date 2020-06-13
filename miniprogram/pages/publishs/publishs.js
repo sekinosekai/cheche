@@ -19,6 +19,7 @@ Page({
       numOfPersons:0,
       addPersons:0, //参与拼单的人
       addIDs:[],//拼单人wx
+      addNum:[],//对应需要的数量
       time:"",
       date:"",
       type:"",
@@ -129,6 +130,7 @@ Page({
           numOfPersons:e.detail.value.personNum,
           addPersons:0, //参与拼单的人
           addIDs:[],//拼单人wx
+          addNum:[],//对应数量
           type:e.detail.value.type,
           date:e.detail.value.date,
           time:e.detail.value.time,
