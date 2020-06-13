@@ -9,7 +9,7 @@
 
 <view class="contain" wx:if="{{list.length!==0}}">
       <block wx:for="{{list}}" wx:key="_id">
-            <view class="card shadow" bindtap="godetail" data-id="{{item._id}}">
+            <view class="card shadow" bindtap="detail" data-id="{{item._id}}">
                   <!--
                   <view class="top">
                   <view class="top1">

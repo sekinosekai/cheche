@@ -8,7 +8,7 @@
 </view>
 <view class="contain" wx:if="{{list.length!==0}}">
       <block wx:for="{{list}}" wx:key="_id">
-            <view class="card" bindtap="detail" data-detail="{{item}}">
+            <view class="card" bindtap="detail" data-id="{{item._id}}">
                   <!--
                   <view class="a">      
                         <view class="a1 {{item.status==1?'text-red':''}}">
