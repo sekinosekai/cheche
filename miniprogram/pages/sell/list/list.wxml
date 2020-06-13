@@ -5,7 +5,7 @@
                   <view class="a">
                         <view class="a1 {{item.status==1?'text-red':''}}">
                               <image lazy-load src="/images/onsell.png"></image>
-                              {{item.status==0?'待出售':(item.status==1?'交易中':(item.status==2?'已完成':'交易取消'))}}
+                              {{item.status==0?'正在拼单':(item.status==1?'拼单完成':'拼单取消')}}
                         </view>
                         <view class="a2">{{morejs.timelog(item.creat)}}</view>
                   </view>
@@ -13,10 +13,10 @@
                         <image lazy-load src="{{item.bookinfo.pic}}"></image>
                         <view class="b1">
                               <view class="b11">
-                                    <view class="b111 text-cut">{{item.bookinfo.title}}</view>
-                                    <view class="b112 text-cut">{{item.bookinfo.author}}</view>
+                                    <view class="b111 text-cut">{{publishinfo.name}}</view>
+                                    <view class="b112 text-cut">{{userinfo.info.nickName}}</view>
                               </view>
-                              <view class="b12">￥{{item.price}}.00元</view>
+                              <view class="b12">￥{{publishinfo.price}}元</view>
                         </view>
                   </view>
                   <view class="c">

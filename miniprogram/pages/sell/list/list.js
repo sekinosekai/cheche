@@ -25,7 +25,7 @@ Page({
       },
       getList() {
             let that = this;
-            db.collection('publish').where({
+            db.collection('Cars').where({
                   _openid: app.openid
             }).orderBy('creat', 'desc').limit(20).get({
                   success: function(res) {
