@@ -115,12 +115,24 @@
             </view>
       </view>
       <view class="deliver_box"></view>
+
+<!--底部导航-->
     <view style="height: 96rpx;"></view>
       <view class="tabbar" wx:if="{{showPin}}">
       <view class="buy_box">
             <view class="buy shadow" bindtap="buy">我要拼单</view>
       </view>
       </view>
+
+<!--底部导航，取消拼单-->
+<view style="height: 96rpx;"></view>
+<view class="tabbar" wx:if="{{showCancel}}">
+<view class="buy_box">
+            <view class="buy shadow" bindtap="cancelBtn">取消拼单</view>
+
+</view>
+</view>
+
       <!-- <view class="palceInput_box" wx:if="{{publishinfo.deliveryid==1}}">
             <input bindinput="placeInput" placeholder="卖家可以帮送，请填写您的收货地址"></input>
       </view> -->
@@ -168,9 +180,6 @@
             </view>
       </view>
 </view>
-
-<!--底部导航-->
-
 
 <!-- <view class="tabbar">
       <view class="t_card">

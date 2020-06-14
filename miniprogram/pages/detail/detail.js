@@ -13,6 +13,7 @@ Page({
             timeDifference:"",//剩余时间
             showPin:true,//别人发布的拼单显示拼单按钮
             showId:false,
+            showCancel: false, //对已参与拼单用户显示“取消拼单”     
             wxlist:[] ,//wxids
             pinRest:[],//pinker可以拼单数组
             index:0,
@@ -66,6 +67,17 @@ Page({
                         })
                         if(restPersons == 0){
                               that.setData({
+                                    showPin:false
+                              })
+                        }
+                        // 判断是否为已拼单用户
+                        // console.log(publishinfo.addIDs)
+                        console.log(publishinfo.addIDs.find((item) => (item.openid == app.openid)))
+                        var addedInfo = publishinfo.addIDs.find((item) => (item.openid == app.openid))
+                        if(typeof(addedInfo) != "undefined"){
+                              console.log("======")
+                              that.setData({
+                                    showCancel:true,
                                     showPin:false
                               })
                         }
@@ -167,6 +179,8 @@ Page({
             console.log(e)
             let that = this;
             var pinNum = Number(that.data.index)+1;//本人拼单数
+            var publishinfo = that.data.publishinfo;
+            console.log(publishinfo)
             var addPersons =Number(that.data.publishinfo.addPersons);//已有拼单数
             var newAddPersons = addPersons+pinNum//更新拼单人数
             if (!app.openid) {
@@ -184,7 +198,7 @@ Page({
                   return false
             }
             const _ = db.command
-            var openid
+            // var openid
             that.setData({//设置拼单者和拼单数量对象值
                   ['pinObj.openid']:app.openid,
                   ['pinObj.num']:pinNum
@@ -209,8 +223,30 @@ Page({
                                     showPin:false
                               })
                         }
+                        // 判断是否为已拼单用户
+                        db.collection('Cars').doc(that.data.id).get({
+                              success: function(res) {
+                                    // that.setData({
+                                    //       addIDs: res.data.addIDs
+                                    // })
+                                    var addIDs = res.data.addIDs
+                                    console.log("=========")
+                                    console.log(res.data.addIDs)
+                                    console.log(addIDs.find((item) => (item.openid == app.openid)))
+                                    var addedInfo = addIDs.find((item) => (item.openid == app.openid))
+                                    if(typeof(addedInfo) != "undefined"){
+                                          console.log("======")
+                                          that.setData({
+                                                showCancel:true,
+                                                showPin:false
+                                          })
+                                    }
+                              }
+                        })
                       }
             })
+
+            
             // wx.cloud.callFunction({
             //       // 云函数名称
             //       name: 'pin',
