@@ -3,7 +3,9 @@
       <view class="top_img">
             <image lazy-load src="{{publishinfo.fileIDs}}"></image>
       </view>
-      <view class="left">剩余{{restPersons}}个，还有{{timeDifference}}截止</view>
+      <view class="left" wx:if="{{restPersons > 0}}">剩余{{restPersons}}个，还有{{timeDifference}}截止</view>
+      <view class="left" wx:else>已拼满，还有{{timeDifference}}截止</view>
+
       <view class="title text-cut">{{publishinfo.name}}</view>
       <!-- <view class="author  text-cut">{{publishinfo.bookinfo.author}}</view> -->
       <view class="price_box">
@@ -63,21 +65,44 @@
             </view>
             </view>
       </view>
-      
+
+<!-- 对发起人显示修改面板 -->
+      <form bindsubmit="onSubmitGood" wx:if="{{showId}}">
       <view class="deliver_box">
             <view class="deliver_first">
                   <view class="deliver_title">取货地点：</view>
                   <!-- <view class="deliver_kind">{{publishinfo.deliveryid==0?'自提':'帮送'}}</view> -->
-            </view>
-            <view class="deliver_kind">暂未发布{{publishinfo.place}}</view>
+            </view> 
+            <input class="submitGoodinfo" name="goodPlace" placeholder="{{publishinfo.goodPlace}}"></input>
+            <button class="submitGoodButton" form-type="submit">修改</button>
+            <!-- <view class="deliver_kind">暂未发布{{publishinfo.place}}</view> -->
+     
       </view>
       <view class="deliver_box">
             <view class="deliver_first">
                   <view class="deliver_title">取货时间：</view>            
             </view>
-            <view class="deliver_kind">暂未发布{{publishinfo.place}}</view>
+            <input class="submitGoodinfo" name="goodTime" placeholder="{{publishinfo.goodTime}}"></input>
+            <button class="submitGoodButton" form-type="submit">修改</button>
+            <!-- <view class="deliver_kind">暂未发布{{publishinfo.place}}</view> -->
       </view>
-      
+      </form>
+
+<!-- 对拼单人显示取货地点 -->
+     <view class="deliver_box" wx:if="{{!showId}}">
+            <view class="deliver_first">
+                  <view class="deliver_title">取货地点：</view>
+                  <!-- <view class="deliver_kind">{{publishinfo.deliveryid==0?'自提':'帮送'}}</view> -->
+            </view>
+            <view class="deliver_kind" >{{publishinfo.goodPlace}}</view>
+      </view>
+      <view class="deliver_box" wx:if="{{!showId}}">
+            <view class="deliver_first">
+                  <view class="deliver_title">取货时间：</view>            
+            </view>
+            <view class="deliver_kind">{{publishinfo.goodTime}}</view>
+      </view>
+
       <!-- <view class="palceInput_box" wx:if="{{publishinfo.deliveryid==1}}">
             <input bindinput="placeInput" placeholder="卖家可以帮送，请填写您的收货地址"></input>
       </view> -->
