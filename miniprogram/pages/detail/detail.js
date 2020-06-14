@@ -42,11 +42,10 @@ Page({
                               // collegeName: JSON.parse(config.data).campus[parseInt(res.data.collegeid) + 1],
                               collegeName: JSON.parse(config.data).campus,
                               publishinfo: res.data,
-                              wxlist: res.data.addIDs //设置用户们的id
                         })
-                        for(let oid of res.data.addIDs){
-                              that.getwx(oid)
-                        }
+                        // for(let oid of res.data.addIDs){
+                        //       that.getwx(oid)
+                        // }
                         //计算剩余截至时间
                         var publishinfo = that.data.publishinfo
                         var dateTime = that.data.publishinfo.date+" "+that.data.publishinfo.time;
@@ -70,6 +69,25 @@ Page({
                                     showPin:false
                               })
                         }
+                        console.log("????????????")
+                        var wxlisttmp = []
+                        var addIDs = publishinfo.addIDs
+                        console.log(publishinfo.addIDs)
+                        for(var j = 0; j < addIDs.length; ++j) {
+                              db.collection('user').where({
+                                    _openid:addIDs[j].openid
+                              }).get({
+                                    success: function(res) {
+                                          wxlisttmp.push(res.data[0].wxnum)
+                                    } 
+                              })
+                        }
+                        console.log("-------------")
+                        that.setData({
+                              wxlist: wxlisttmp //设置用户们的id
+                        })
+                        console.log(wxlisttmp)
+                        
                         // 判断是否为已拼单用户
                         // console.log(publishinfo.addIDs)
                         console.log(publishinfo.addIDs.find((item) => (item.openid == app.openid)))
@@ -87,21 +105,21 @@ Page({
             })
       },
 
-      getwx(m){
-            let that = this;
-            db.collection('user').where({
-                  _openid:m
-            }).get({
-                  success: function(res) {
-                        that.setData({
-                              wxlist: wxlist.push(res.data[0].wxnum)
-                        })
-                  },
-                  fail:function(res){
-                        console.log("fail"+res)
-                  }
-            })
-      },
+      // getwx(m){
+      //       let that = this;
+      //       db.collection('user').where({
+      //             _openid:m
+      //       }).get({
+      //             success: function(res) {
+      //                   that.setData({
+      //                         wxlist: wxlist.push(res.data[0].wxnum)
+      //                   })
+      //             },
+      //             fail:function(res){
+      //                   console.log("fail"+res)
+      //             }
+      //       })
+      // },
       //获取卖家信息
       getSeller(m) {
             console.log("openid"+m)
