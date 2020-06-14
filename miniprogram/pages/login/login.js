@@ -160,16 +160,15 @@ Page({
             }
             //校检微信号
             let wxnum = that.data.wxnum;
-            if (wxnum !== '') {
-                  if (!(/^[a-zA-Z]([-_a-zA-Z0-9]{5,19})+$/.test(wxnum))) {
-                        wx.showToast({
-                              title: '请输入正确微信号',
-                              icon: 'none',
-                              duration: 2000
-                        });
-                        return false;
-                  }
+            if (!(/^[a-zA-Z]([-_a-zA-Z0-9]{5,19})+$/.test(wxnum))) {
+                  wx.showToast({
+                        title: '请输入正确微信号',
+                        icon: 'none',
+                        duration: 2000
+                  });
+                  return false;
             }
+            
             wx.showLoading({
                   title: '正在提交',
             })
