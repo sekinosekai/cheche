@@ -16,8 +16,8 @@ Page({
       description:"",
       link:"",
       platform:"",
-      numOfPersons:0,
-      addPersons:0, //参与拼单的人
+      numOfPersons:0,//需要人数
+      addPersons:0, //参与拼单的数量
       addIDs:[],//拼单人wx
       time:"",
       date:"",
@@ -25,6 +25,8 @@ Page({
       tempImg: [],
       fileIDs: [],
       campus:"",
+      goodTime:"",
+      goodPlace:""
     },
     
   },
@@ -133,7 +135,9 @@ Page({
           date:e.detail.value.date,
           time:e.detail.value.time,
           campus:e.detail.value.campus,
-          fileIDs: this.data.fileIDs //只有当所有的图片都上传完毕后，这个值才能被设置，但是上传文件是一个异步的操作，你不知道他们什么时候把fileid返回，所以就得用promise.all
+          fileIDs: this.data.fileIDs, //只有当所有的图片都上传完毕后，这个值才能被设置，但是上传文件是一个异步的操作，你不知道他们什么时候把fileid返回，所以就得用promise.all
+          goodTime:new Date(),
+          goodPlace:""
         }
       })
         .then(res => {
