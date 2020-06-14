@@ -58,9 +58,8 @@
             <view class="deliver_first">
                   <view class="deliver_title">拼单人微信号：</view>            
             </view>
-            <!-- 显示微信号们 -->
             <view class="wxlist">
-            <view wx:for="{{wxlist}}">
+            <view wx:for="{{wxlist}}" >
                   {{item}}
             </view>
             </view>
@@ -112,9 +111,11 @@
                   <picker bindchange="pinNumChange" name="pinNum" range="{{pinRest}}">
                        <view class="picker">
                         {{pinRest[index]}}
+                        <image src="/images/plus.png" class="downicon"></image>
                         </view>
                   </picker>
             </view>
+            
       </view>
       <view class="deliver_box"></view>
 

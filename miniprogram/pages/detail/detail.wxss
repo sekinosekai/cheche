@@ -253,6 +253,12 @@
       align-items: flex-start;
       justify-content: space-around;
 }
+
+.downicon{
+      width: 30rpx;
+      height: 30rpx;
+}
+
 .deliver_kind {
       font-size: 28rpx;
       letter-spacing: 2rpx;
