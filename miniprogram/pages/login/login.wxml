@@ -15,12 +15,13 @@
                         <image class="right" src="/images/right.png" />
                   </view>
             </picker>
-             <view class="contact">
-                  <input bindinput="emInput" value="{{email}}" maxlength="30" placeholder-class="pache" placeholder="输入您的邮箱地址(选填)" />
+            <view class="contact">
+                  <input bindinput="wxInput" value="{{wxnum}}" maxlength="30" placeholder-class="pache" placeholder="输入您的微信号" />
             </view>
             <view class="contact">
-                  <input bindinput="wxInput" value="{{wxnum}}" maxlength="30" placeholder-class="pache" placeholder="输入您的微信号(选填)" />
+                  <input bindinput="emInput" value="{{email}}" maxlength="30" placeholder-class="pache" placeholder="输入您的邮箱地址(选填)" />
             </view>
+
             <view class="contact">
                   <input type="number" bindinput="qqInput" value="{{qqnum}}" maxlength="20" placeholder-class="pache" placeholder="输入您的QQ号(选填)" />
             </view>
