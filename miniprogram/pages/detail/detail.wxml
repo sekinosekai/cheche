@@ -102,7 +102,9 @@
             </view>
             <view class="deliver_kind">{{publishinfo.goodTime}}</view>
       </view>
-      <view class="deliver_box">
+
+      <!-- 选择拼单数量（对发起人隐藏） -->
+      <view class="deliver_box" wx:if="{{showId}}">
             <view class="deliver_first">
                   <view class="deliver_title">点击选择拼单数量：</view>            
             </view>

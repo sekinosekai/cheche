@@ -123,7 +123,8 @@ Page({
                               console.log("=======++++++")
                               that.setData({
                                     showPin:false,
-                                    showId:true
+                                    showId:true,
+                                    showCancel:true
                               })
                         }
                   }
