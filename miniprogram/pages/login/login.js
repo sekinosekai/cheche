@@ -95,7 +95,8 @@ Page({
       },
       getUserInfo(e) {
             let that = this;
-            console.log(e);
+            console.log("===========");
+            console.log(e)
             let test = e.detail.errMsg.indexOf("ok");
             if (test == '-1') {
                   wx.showToast({
@@ -191,6 +192,11 @@ Page({
                               success: function(res) {
                                     app.userinfo = res.data;
                                     app.openid = res.data._openid;
+                                    //wx.clearStorage();
+                                    wx.setStorage({
+                                      data: app.openid,
+                                      key: 'openid',
+                                    })
                                     wx.navigateBack({})
                               },
                         })

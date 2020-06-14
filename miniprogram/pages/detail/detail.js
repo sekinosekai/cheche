@@ -13,7 +13,13 @@ Page({
             timeDifference:"",//剩余时间
             showPin:true,//别人发布的拼单显示拼单按钮
             showId:false,
-            wxlist:[] //wxids
+            wxlist:[] ,//wxids
+            pinRest:[],//pinker可以拼单数组
+            index:0,
+            pinObj:{
+                  openid:"",
+                  num:''
+            }
       },
       onLoad(e) {
             this.getuserdetail();
@@ -37,6 +43,9 @@ Page({
                               publishinfo: res.data,
                               wxlist: res.data.addIDs //设置用户们的id
                         })
+                        for(let oid of res.data.addIDs){
+                              that.getwx(oid)
+                        }
                         //计算剩余截至时间
                         var publishinfo = that.data.publishinfo
                         var dateTime = that.data.publishinfo.date+" "+that.data.publishinfo.time;
@@ -48,19 +57,20 @@ Page({
                               timeDifference:timeDifference,
                               restPersons:restPersons
                         })
-
-                        console.log(restPersons)
+                        let pinRest = [];
+                        for(var i = 1; i <= restPersons; i++){
+                              pinRest.push(i)
+                        }
+                        that.setData({
+                              pinRest:pinRest
+                        })
                         if(restPersons == 0){
-                              console.log("1111111111111111111")
                               that.setData({
                                     showPin:false
                               })
                         }
-                        for(oid of res.data.addIDs){
-                              getwx(oid)
-                        }
                         // that.getSeller(res.data._openid, res.data._id)
-                        that.getSeller(res.data._openid)
+                        that.getSeller(publishinfo._openid)
                   }
             })
       },
@@ -74,11 +84,15 @@ Page({
                         that.setData({
                               wxlist: wxlist.push(res.data[0].wxnum)
                         })
+                  },
+                  fail:function(res){
+                        console.log("fail"+res)
                   }
             })
       },
       //获取卖家信息
       getSeller(m) {
+            console.log("openid"+m)
             let that = this;
             db.collection('user').where({
                   _openid:m
@@ -120,7 +134,7 @@ Page({
                   url: '/pages/index/index',
             })
       },
-      
+      //复制链接
       copyTBL:function(e){
             var self=this
             wx.setClipboardData({
@@ -141,11 +155,20 @@ Page({
             }
       });
       },
+      //picker选择拼单数量
+      pinNumChange:function(e){
+            this.setData({
+                  index:e.detail.value
+            })
+      },
       
       //购买检测
       buy(e) {
             console.log(e)
             let that = this;
+            var pinNum = Number(that.data.index)+1;//本人拼单数
+            var addPersons =Number(that.data.publishinfo.addPersons);//已有拼单数
+            var newAddPersons = addPersons+pinNum//更新拼单人数
             if (!app.openid) {
                   wx.showModal({
                         title: '温馨提示',
@@ -161,26 +184,31 @@ Page({
                   return false
             }
             const _ = db.command
+            var openid
+            that.setData({//设置拼单者和拼单数量对象值
+                  ['pinObj.openid']:app.openid,
+                  ['pinObj.num']:pinNum
+            })
+            var pinObj = that.data.pinObj;
             db.collection('Cars').doc(that.data.id).update({
                   // data 传入需要局部更新的数据
                   data: {
-                    // 人数+1
-                    addPersons: _.inc(1),
-                    addIDs: _.push(app.openid)
+                    // 人数+拼单数
+                    addPersons: newAddPersons,
+                    addIDs: _.push(pinObj)//插入对象【openid,num】
                   },
                   success: function(res) {
                         var rest = that.data.restPersons;
+                        console.log("rest"+rest)
                         that.setData({
-                              restPersons:rest-1
+                              restPersons:rest-pinNum
                         })
                         console.log(that.data.restPersons)
                         if(that.data.restPersons == 0){
-                              console.log("1111111111111111111")
                               that.setData({
                                     showPin:false
                               })
                         }
-                        
                       }
             })
             // wx.cloud.callFunction({

@@ -77,7 +77,25 @@
             </view>
             <view class="deliver_kind">暂未发布{{publishinfo.place}}</view>
       </view>
-      
+      <view class="deliver_box">
+            <view class="deliver_first">
+                  <view class="deliver_title">点击选择拼单数量：</view>            
+            </view>
+            <view class="deliver_kind">
+                  <picker bindchange="pinNumChange" name="pinNum" range="{{pinRest}}">
+                       <view class="picker">
+                        {{pinRest[index]}}
+                        </view>
+                  </picker>
+            </view>
+      </view>
+      <view class="deliver_box"></view>
+    <view style="height: 96rpx;"></view>
+      <view class="tabbar" wx:if="{{showPin}}">
+      <view class="buy_box">
+            <view class="buy shadow" bindtap="buy">我要拼单</view>
+      </view>
+      </view>
       <!-- <view class="palceInput_box" wx:if="{{publishinfo.deliveryid==1}}">
             <input bindinput="placeInput" placeholder="卖家可以帮送，请填写您的收货地址"></input>
       </view> -->
@@ -127,12 +145,7 @@
 </view>
 
 <!--底部导航-->
-<view style="height: 96rpx;"></view>
-<view class="tabbar" wx:if="{{showPin}}">
-<view class="buy_box">
-            <view class="buy shadow" bindtap="buy">我要拼单</view>
-</view>
-</view>
+
 
 <!-- <view class="tabbar">
       <view class="t_card">

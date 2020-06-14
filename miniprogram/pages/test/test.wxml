@@ -5,3 +5,6 @@
   </view>
   
 
+
+  <button bindtap="numChange">更新数据</button>
+
