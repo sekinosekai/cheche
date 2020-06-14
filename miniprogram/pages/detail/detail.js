@@ -237,6 +237,27 @@ Page({
             // }
             // that.getStatus();
       },
+
+      //提交取货地
+      onSubmitGood:function(e){
+            console.log(e)
+            let that = this;
+            const _ = db.command
+            db.collection('Cars').doc(that.data.id).update({
+                  // data 传入需要局部更新的数据
+                  data: {
+                    // 人数+1
+                    goodTime: e.detail.value.goodTime,
+                    goodPlace: e.detail.value.goodPlace
+                  },
+                  success: function(res) {
+                        console.log("修改成功")
+                      }
+            })
+          },
+
+
+
       //获取订单状态
       getStatus() {
             let that = this;
