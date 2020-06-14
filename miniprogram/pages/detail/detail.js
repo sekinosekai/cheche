@@ -24,7 +24,7 @@ Page({
       },
       onLoad(e) {
             this.getuserdetail();
-            this.data.id = e.scene;
+            this.data.id = e.scene;//订单编号
             this.getPublish(e.scene);
       },
       changeTitle(e) {
@@ -90,6 +90,7 @@ Page({
                         
                         // 判断是否为已拼单用户
                         // console.log(publishinfo.addIDs)
+                        console.log("??????????????????????????")
                         console.log(publishinfo.addIDs.find((item) => (item.openid == app.openid)))
                         var addedInfo = publishinfo.addIDs.find((item) => (item.openid == app.openid))
                         if(typeof(addedInfo) != "undefined"){
@@ -264,7 +265,7 @@ Page({
                         })
                       }
             })
-
+            that.getPublish(that.data.id)
             
             // wx.cloud.callFunction({
             //       // 云函数名称
@@ -311,7 +312,65 @@ Page({
             })
           },
 
-
+      //取消拼单
+      cancelBtn:function(e){
+      console.log('quxiao')
+      let that = this;
+      var addPersons = that.data.publishinfo.addPersons;//该拼单已有人数
+      wx.showModal({
+            title: '取消提示',
+            content: '确认要取消该拼单吗？',
+            success: function (res) {
+              if (res.confirm) {  
+                  //发车人取消
+                if(app.openid == that.data.publishinfo._openid){
+                  console.log('发车人点击')
+                  db.collection('Cars').doc(that.data.id).remove().then(res=>{
+                        console.log("删除");
+                        console.log(res)
+                        wx.switchTab({
+                          url: '../index/index',
+                        })
+                      })
+                  }else{//上车用户下车
+                        //找出该用户拼单数量
+                        // db.collection('Cars').doc(that.data.id).get({
+                        //       success:function(e){
+                        //             var addIDs = res.data.addIDs
+                        //             var addedInfo = addIDs.find((item) => (item.openid == app.openid)) 
+                        //             console.log("!!!!!!!!!!!!!!!!!!!")
+                        //             console.log(addedInfo.openid+" "+addedInfo.num)
+                        //             var num = addedInfo.num;//该用户拼单数量
+                        //             that.setData({
+                        //                   addedInfo:addedInfo 
+                        //              })
+                        //       }
+                        // })     
+                        //取消拼单
+                        // that.setData({
+                        //      restPersons:addPersons+that.data.addedInfo.num 
+                        // })
+                        // wx.cloud.callFunction({
+                        //       name: 'pin',
+                        //       data:{
+                        //         _id:that.data.id,
+                        //         openid:app.openid,
+                        //         num:that.addedInfo.num,//该用户单数
+                        //         addPersons:addPersons//该拼单已有数量
+                        //       },
+                        //       complete: res => {
+                        //         console.log('callFunction test result: ', res)
+                        //       }
+                        //     })
+                   }
+            } else {   
+                console.log('点击取消回调')
+              }
+            }
+          })
+     
+      //上车人下车
+      },
 
       //获取订单状态
       getStatus() {
