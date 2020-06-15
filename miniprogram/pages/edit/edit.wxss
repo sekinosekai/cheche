@@ -110,7 +110,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(#fae74e, #ff9a2f);
+      background: linear-gradient(#4db7ff, #8dc6ec);
       border-radius: 60rpx;
       color: #fff;
       font-size: 40rpx;

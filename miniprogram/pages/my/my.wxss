@@ -81,6 +81,10 @@
       height: 20rpx;
       background: #f4f4f4;
 }
+.myposter{
+      width: 100%;
+      height: 750rpx;
+}
 
 .bottom_box {
       width: 100%;

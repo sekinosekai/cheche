@@ -1,13 +1,13 @@
 <wxs src="../../common.wxs" module="morejs" />
 <!-- banner设计，需要改成静止图片 -->
-<image src="/images/banner.png" class="banner_image" />
-<!-- <swiper class="banner" indicator-dots autoplay indicator-active-color="#4db7ff" circular>
+<!-- <image src="/images/banner.png" class="banner_image" /> -->
+<swiper class="banner" indicator-dots autoplay indicator-active-color="#4db7ff" circular>
       <block wx:for="{{banner}}" wx:key="id">
             <swiper-item>
                   <image lazy-load src="{{item.img}}" bindtap="goweb" data-web="{{item}}" class="banner_image" />
             </swiper-item>
       </block>
-</swiper> -->
+</swiper>
 
 <view class="top_box">
       <view class="search_box" bindtap="search">

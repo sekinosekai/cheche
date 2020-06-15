@@ -11,13 +11,14 @@ Page({
             scrollTop: 0,
             nomore: false,
             list: [], //拼单商品列表
+            banner:[]
       },
       onShow(){
             this.getList();
       },
       onLoad() {
             //this.listkind();
-            //this.getbanner();
+            this.getbanner();
             this.getList();
       },
       //监测屏幕滚动
@@ -202,16 +203,17 @@ Page({
             })
       },
       //获取轮播
-      // getbanner() {
-      //       let that = this;
-      //       db.collection('banner').where({}).get({
-      //             success: function(res) {
-      //                   that.setData({
-      //                         banner: res.data[0].list
-      //                   })
-      //             }
-      //       })
-      // },
+      getbanner() {
+            let that = this;
+            db.collection('banner').where({}).get({
+                  success: function(res) {
+                        that.setData({
+                              banner: res.data[0].list
+                        })
+                        console.log(res.data[0].list)
+                  }
+            })
+      },
       //跳转轮播链接
       // goweb(e) {
       //       if (e.currentTarget.dataset.web){

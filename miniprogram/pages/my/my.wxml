@@ -68,7 +68,7 @@
             <image src="/images/go.png"></image>
       </view>
 </view>-->
-<image src="/images/banner.png" class="banner_image" />
+<image src="/images/ipin.png" class="myposter"/>
 <!--分享弹出层-->
 <van-popup show="{{ showShare }}" bind:close="closePop">
       <view class="share_contain">
