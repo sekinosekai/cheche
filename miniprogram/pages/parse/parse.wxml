@@ -42,6 +42,6 @@
 
 <!--无内容显示-->
 <view class="nocontent" wx:if="{{list.length==0}}">
-      <image src="/images/blank.png"></image>
-      <view class="blank_text">这里空空如也~</view>
+      <!-- <image src="/images/blank.png"></image> -->
+      <view class="blank_text">奇怪，这里什么也没有</view>
 </view>
