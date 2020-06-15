@@ -8,6 +8,7 @@ Page({
        * 页面的初始数据
        */
       data: {
+            campus: JSON.parse(config.data).campus,//校区
             scrollTop: 0,
             newlist: [],
             list: [],

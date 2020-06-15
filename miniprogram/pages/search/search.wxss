@@ -40,8 +40,9 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: rgb(0, 0, 0);
-      color: #fff;
+      background: rgb(255, 255, 255);
+      color: #4db7ff;
+      font-weight: 600;
       font-size: 28rpx;
       border-radius: 0 33rpx 33rpx 0;
       letter-spacing: 4rpx;

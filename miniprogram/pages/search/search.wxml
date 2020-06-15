@@ -2,7 +2,7 @@
 <view class="top_contain">
       <view class="search_box">
             <image src="/images/search.png"></image>
-            <input bindinput="keyInput" bindconfirm="search" placeholder="输入您感兴趣的内容"></input>
+            <input bindinput="keyInput" bindconfirm="search" placeholder="查找想拼的商品"></input>
       </view>
       <view class="search" bindtap="search">搜索</view>
 </view>
@@ -11,7 +11,7 @@
       <block wx:if="{{list.length==0}}">
             <block wx:if="{{!blank}}">
                   <view class="a">
-                        <image src="/images/his.png"></image>
+                        <!-- <image src="/images/his.png"></image> -->
                         <view>搜索历史</view>
                   </view>
                   <block wx:if="{{hislist.length==0}}">
@@ -19,23 +19,23 @@
                   </block>
                   <block wx:if="{{hislist.length>0}}">
                         <block wx:for="{{hislist}}" wx:key="*this">
-                              <view bindtap="choosekey" data-key="{{item}}" class="hisitem">{{index+1}}. {{item}}</view>
+                              <view bindtap="choosekey" data-key="{{item}}" class="hisitem">{{item}}</view>
                         </block>
                   </block>
             </block>
             <block wx:if="{{blank}}">
                   <view class="a">
-                        <image src="/images/result.png"></image>
+                        <!-- <image src="/images/result.png"></image> -->
                         <view>搜索结果</view>
                   </view>
                   <!--无内容显示-->
                   <view class="nocontent">
-                        <image src="/images/blank.png"></image>
-                        <view class="blank_text">暂无{{key}}相关书籍哟~</view>
+                        <!-- <image src="/images/blank.png"></image> -->
+                        <view class="blank_text">暂无{{key}}相关商品</view>
                   </view>
             </block>
             <view class="a">
-                  <image src="/images/recommend.png"></image>
+                  <!-- <image src="/images/recommend.png"></image> -->
                   <view>更多推荐</view>
             </view>
             <block wx:if="{{newlist.length==0}}">
@@ -49,13 +49,11 @@
                                     <view class="list_word">
                                           <view class="list_title text-cut">{{item.name}}
                                           </view>
-                                          <view class="list_author text-cut">{{item.bookinfo.author}}
+                                          <view class="list_author text-cut">@{{campus[item.campus].name}}
                                           </view>
                                     </view>
                                     <view class="list_between">
-                                          <view class="list_price">￥{{item.price}}.00元</view>
-                                          <view class="list_time">{{morejs.timelog(item.creat )}}发布
-                                          </view>
+                                          <view class="list_price">￥{{item.price}}/{{item.unit}}</view>
                                     </view>
                               </view>
                         </view>
@@ -64,7 +62,7 @@
       </block>
       <block wx:if="{{list.length>0}}">
             <view class="a">
-                  <image src="/images/result.png"></image>
+                  <!-- <image src="/images/result.png"></image> -->
                   <view>搜索结果</view>
             </view>
             <block wx:for="{{list}}" wx:key="_id">
@@ -74,13 +72,13 @@
                               <view class="list_word">
                                     <view class="list_title text-cut">{{item.name}}
                                     </view>
-                                    <view class="list_author text-cut">{{item.bookinfo.author}}
+                                    <view class="list_author text-cut">@{{campus[item.campus].name}}
                                     </view>
                               </view>
                               <view class="list_between">
-                                    <view class="list_price">￥{{item.price}}.00元</view>
-                                    <view class="list_time">{{morejs.timelog(item.creat )}}发布
-                                    </view>
+                                    <view class="list_price">￥{{item.price}}/{{item.unit}}</view>
+                                    <!-- <view class="list_time">{{item.date}} {{item.time}}截止
+                                    </view> -->
                               </view>
                         </view>
                   </view>

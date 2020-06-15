@@ -29,7 +29,7 @@
     "backgroundColor": "#4db7ff",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#4db7ff",
-    "navigationBarTitleText": "i拼",
+    "navigationBarTitleText": "拼单小程序",
     "navigationBarTextStyle": "white"
   },
   "sitemapLocation": "sitemap.json",
