@@ -54,7 +54,7 @@ Page({
                   var statusid = parseInt(status) //小程序搜索必须对应格式
             }
             db.collection('Cars').where({
-                  addIDs: app.openid
+                  'addIDs.openid': app.openid
             }).orderBy('creat', 'desc').get({
                   success(re) {
                         wx.stopPullDownRefresh(); //暂停刷新动作

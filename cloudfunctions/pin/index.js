@@ -13,7 +13,7 @@ exports.main = async (event, context) => {
   }).update({
     data:{
       //'addIDs.$.num': 8889
-      addPersons:event.addPersons+event.num,//恢复单数
+      addPersons:event.reAddPersons,//恢复单数
       addIDs:_.pull({
         openid:_.eq(event.openid)//删除该用户拼单数据
       })

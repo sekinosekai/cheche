@@ -93,6 +93,9 @@ Page({
                         console.log("??????????????????????????")
                         console.log(publishinfo.addIDs.find((item) => (item.openid == app.openid)))
                         var addedInfo = publishinfo.addIDs.find((item) => (item.openid == app.openid))
+                        that.setData({
+                              addedInfo:addedInfo
+                        })
                         if(typeof(addedInfo) != "undefined"){
                               console.log("======")
                               that.setData({
@@ -139,7 +142,6 @@ Page({
                         console.log(app.openid)
 
                         if(res.data[0]._openid == app.openid){
-                              console.log("=======++++++")
                               that.setData({
                                     showPin:false,
                                     showId:true,
@@ -217,6 +219,9 @@ Page({
                   })
                   return false
             }
+            that.setData({
+                  ['publishinfo.addPersons']:newAddPersons//拼单后修改页面‘已拼单人数’
+            })
             const _ = db.command
             // var openid
             that.setData({//设置拼单者和拼单数量对象值
@@ -317,6 +322,7 @@ Page({
       console.log('quxiao')
       let that = this;
       var addPersons = that.data.publishinfo.addPersons;//该拼单已有人数
+      console.log("addPersons:"+addPersons)
       wx.showModal({
             title: '取消提示',
             content: '确认要取消该拼单吗？',
@@ -350,18 +356,36 @@ Page({
                         // that.setData({
                         //      restPersons:addPersons+that.data.addedInfo.num 
                         // })
-                        // wx.cloud.callFunction({
-                        //       name: 'pin',
-                        //       data:{
-                        //         _id:that.data.id,
-                        //         openid:app.openid,
-                        //         num:that.addedInfo.num,//该用户单数
-                        //         addPersons:addPersons//该拼单已有数量
-                        //       },
-                        //       complete: res => {
-                        //         console.log('callFunction test result: ', res)
-                        //       }
-                        //     })
+                        var pinObj = that.data.pinObj//取出用户拼单数量
+                        var reAddPersons="";
+                        var num = ""//该用户拼单书
+                        if(that.data.addedInfo){
+                              num = that.data.addedInfo.num
+                              reAddPersons = that.data.publishinfo.addPersons-num
+                        }else{
+                              num = pinObj.num;
+                              reAddPersons = that.data.publishinfo.addPersons-num;//恢复拼单前的拼单人书
+                        }  
+                        console.log("reAddPersons:"+reAddPersons)
+                        that.setData({
+                              restPersons:that.data.restPersons+num//恢复剩余数量
+                        })
+                        wx.cloud.callFunction({
+                              name: 'pin',
+                              data:{
+                                _id:that.data.id,
+                                openid:app.openid,
+                                reAddPersons:reAddPersons
+                              },
+                              complete: res => {
+                                console.log('callFunction test result: ', res)
+                                that.setData({
+                                      showCancel:false,
+                                      showPin:true
+                                })
+                              }
+                            })
+                            wx.navigateBack()
                    }
             } else {   
                 console.log('点击取消回调')
