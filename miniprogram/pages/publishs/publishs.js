@@ -90,7 +90,7 @@ Page({
     // const that = this
     // console.log(that.data.Car.me+"==========fileIDs")
     const db = wx.cloud.database()
-    const cars = db.collection('Cars')
+    const cars = db.collection('good')
     //console.log(e);
     const promiseArr = [];
     console.log("照片数量"+this.data.tempImg.length)

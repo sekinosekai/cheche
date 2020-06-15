@@ -7,7 +7,7 @@ let config = {
             pass: 'xxxxxxxxxx' //邮箱的授权码
       }
 };
-const xcxname = '拼单小程序'; //你的小程序名称
+const xcxname = '购拼Gopin'; //你的小程序名称
 
 /*
 下

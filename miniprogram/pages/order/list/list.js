@@ -53,7 +53,7 @@ Page({
             } else {
                   var statusid = parseInt(status) //小程序搜索必须对应格式
             }
-            db.collection('Cars').where({
+            db.collection('good').where({
                   'addIDs.openid': app.openid
             }).orderBy('creat', 'desc').get({
                   success(re) {

@@ -8,8 +8,8 @@ const _ = db.command
 
 // 云函数入口函数
 exports.main = async (event, context) => {
-  return await db.collection('Cars').where({
-    _id:event._id//查找对应Cars数据
+  return await db.collection('good').where({
+    _id:event._id//查找对应good数据
   }).update({
     data:{
       //'addIDs.$.num': 8889

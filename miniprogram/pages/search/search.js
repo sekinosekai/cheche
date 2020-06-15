@@ -90,7 +90,7 @@ Page({
             if (n !== 'his') {
                   that.history(key);
             }
-            db.collection('Cars').where({
+            db.collection('good').where({
                   //status: 0,
                   //dura: _.gt(new Date().getTime()),
                   name: db.RegExp({
@@ -164,7 +164,7 @@ Page({
             } else {
                   var collegeid = that.data.collegeCur + '' //小程序搜索必须对应格式
             }
-            db.collection('Cars').where({
+            db.collection('good').where({
                   status: 0,
                   dura: _.gt(new Date().getTime()),
                   key: db.RegExp({

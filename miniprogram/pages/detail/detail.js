@@ -38,7 +38,7 @@ Page({
       //获取发布信息
       getPublish(e) {
             let that = this;
-            db.collection('Cars').doc(e).get({
+            db.collection('good').doc(e).get({
                   success: function(res) {
                         that.setData({
                               // collegeName: JSON.parse(config.data).campus[parseInt(res.data.collegeid) + 1],
@@ -210,7 +210,7 @@ Page({
                   ['pinObj.num']:pinNum
             })
             var pinObj = that.data.pinObj;
-            db.collection('Cars').doc(that.data.id).update({
+            db.collection('good').doc(that.data.id).update({
                   // data 传入需要局部更新的数据
                   data: {
                     // 人数+拼单数
@@ -230,7 +230,7 @@ Page({
                               })
                         }
                         // 判断是否为已拼单用户
-                        db.collection('Cars').doc(that.data.id).get({
+                        db.collection('good').doc(that.data.id).get({
                               success: function(res) {
                                     // that.setData({
                                     //       addIDs: res.data.addIDs
@@ -288,7 +288,7 @@ Page({
             console.log(e)
             let that = this;
             const _ = db.command
-            db.collection('Cars').doc(that.data.id).update({
+            db.collection('good').doc(that.data.id).update({
                   // data 传入需要局部更新的数据
                   data: {
                     // 人数+1
@@ -315,7 +315,7 @@ Page({
                   //发车人取消
                 if(app.openid == that.data.publishinfo._openid){
                   console.log('发车人点击')
-                  db.collection('Cars').doc(that.data.id).remove().then(res=>{
+                  db.collection('good').doc(that.data.id).remove().then(res=>{
                         console.log("删除");
                         console.log(res)
                         wx.switchTab({
@@ -324,7 +324,7 @@ Page({
                       })
                   }else{//上车用户下车
                         //找出该用户拼单数量
-                        // db.collection('Cars').doc(that.data.id).get({
+                        // db.collection('good').doc(that.data.id).get({
                         //       success:function(e){
                         //             var addIDs = res.data.addIDs
                         //             var addedInfo = addIDs.find((item) => (item.openid == app.openid)) 

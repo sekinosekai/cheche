@@ -15,6 +15,9 @@ Page({
       },
       onShow(){
             this.getList();
+            wx.setEnableDebug({
+              enableDebug: true,
+            })
       },
       onLoad() {
             //this.listkind();
@@ -111,7 +114,7 @@ Page({
             }
             //获取当前时间
             var nowDate=config.formTime(new Date());
-            db.collection('Cars').where({
+            db.collection('good').where({
                   //status: 0,
                   // dura: _.gt(new Date().getTime()),
                    type: collegeid,
