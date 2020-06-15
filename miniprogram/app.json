@@ -1,14 +1,11 @@
 {
   "cloud": true,
   "pages": [
-    "pages/start/start",
     "pages/index/index",
     "pages/login/login",
-    "pages/publish/publish",
     "pages/my/my",
     "pages/detail/detail",
     "pages/success/success",
-    "pages/order/detail/detail",
     "pages/order/list/list",
     "pages/help/help",
     "pages/kefu/kefu",

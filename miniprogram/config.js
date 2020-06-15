@@ -12,9 +12,7 @@ var data = {
             gzh: 'https://mmbiz.qpic.cn/mmbiz_png/nJPznPUZbhpKCwnibUUqnt7BQXr3MbNsasCfsBd0ATY8udkWPUtWjBTtiaaib6rTREWHnPYNVRZYgAesG9yjYOG7Q/640', //公众号二维码必须为网络地址
             phone: '' //如果你不设置电话客服，就留空
       },
-      //默认启动页背景图，防止请求失败完全空白 
-      //可以是网络地址，本地文件路径要填绝对位置
-      bgurl: '/images/startBg.jpg',
+
       //校区：西土城、沙河
       campus: [{
                   name: '西土城',

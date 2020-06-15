@@ -53,12 +53,4 @@ Page({
                   urls: e.currentTarget.dataset.link.split(",")
             });
       },
-      onShareAppMessage() {
-            return {
-                  title: JSON.parse(config.data).share_title,
-                  imageUrl: JSON.parse(config.data).share_img,
-                  path: '/pages/start/start'
-            }
-
-      },
 })

@@ -90,13 +90,6 @@
 				},
 				{
 					"id": -1,
-					"name": "【订单】详情",
-					"pathName": "pages/order/detail/detail",
-					"query": "id=5d262bd45d7264f5134049797256c6f9",
-					"scene": null
-				},
-				{
-					"id": -1,
 					"name": "【订单】列表",
 					"pathName": "pages/order/list/list",
 					"query": "",

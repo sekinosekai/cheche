@@ -29,7 +29,7 @@
       <!--底部确认-->
       <button class="confirm" open-type='getUserInfo' bindgetuserinfo="getUserInfo">注册并登录</button>
       <view class="shen_title">
-            <image class="about" src="/images/about.png" />使用申明
+            <image class="about" src="/images/about.png" />提示
       </view>
       <view class="des">1. 请选择所在校区和微信号</view>
       <view class="des">2. 邮箱地址和QQ号为选填信息</view>
